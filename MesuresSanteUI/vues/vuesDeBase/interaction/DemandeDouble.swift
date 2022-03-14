@@ -12,6 +12,7 @@ struct DemandeDouble: View {
     
     var titre:String
     @Binding var valeur:Double
+    @Binding var isChanged : Bool
     var mini:Double
     var maxi : Double
     var pas : Double = 0.1
@@ -25,10 +26,13 @@ struct DemandeDouble: View {
             HStack {
                 Text("\(mini, specifier: codeDigits)")
                     .foregroundColor(couleur)
-                Slider(value: $valeur, in: mini...maxi, step: pas)
-                    
+                Slider(value: $valeur, in: mini...maxi, step: pas, onEditingChanged: { editing in
+                    isChanged = editing
+                })
+                    //.thumbTintColor = couleur
                     .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
                     .accentColor(couleur)
+                    
                     
                 Text("\(maxi, specifier: codeDigits)")
                     .foregroundColor(couleur)
@@ -43,6 +47,6 @@ struct DemandeDouble: View {
 
 struct DemandeDouble_Previews: PreviewProvider {
     static var previews: some View {
-        DemandeDouble(titre: "Systolique", valeur: .constant(12), mini: 3, maxi: 30, couleur: .pink)
+        DemandeDouble(titre: "Systolique", valeur: .constant(12.0), isChanged: .constant(true), mini: 3, maxi: 30, couleur: .pink)
     }
 }

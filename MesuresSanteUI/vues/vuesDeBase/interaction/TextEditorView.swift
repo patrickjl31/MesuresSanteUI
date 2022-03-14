@@ -21,6 +21,7 @@ struct TextEditorView: View {
             .border(Color.blue)
             .cornerRadius(20)
             
+            
             .frame(minWidth: 150, maxWidth: 450, minHeight: 0, maxHeight: 100)
             
             .padding(.horizontal, 10)

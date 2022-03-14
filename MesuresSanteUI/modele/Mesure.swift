@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct Mesure: Codable, Identifiable {
+struct Mesure: Codable, Identifiable, Hashable {
     var id:UUID = UUID()
     var systolique: Double = 0
     var distolique:Double = 0
     var pulsation : Double = 0
+    var oxygene : Double = 95.0
     var dateMesurS : String = ""
     var dateMesure: Date = Date()
     var moment:String = ""

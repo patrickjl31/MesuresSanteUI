@@ -11,6 +11,7 @@ import SwiftUI
 
 class Mesures: ObservableObject, Codable , Identifiable{
     
+    
     @Published var maTension : [Mesure] = []
     //@Published var monSucre : [MesuresSucre] = []
     //@Published var monRapport : [RapportQotidien] = []
@@ -43,6 +44,7 @@ class Mesures: ObservableObject, Codable , Identifiable{
     }
     
     init() {
+        /*
         if !recallFromFile(){
             if let anciennesMesures = recall(){
                 maTension = anciennesMesures
@@ -53,7 +55,7 @@ class Mesures: ObservableObject, Codable , Identifiable{
                 })
             }
         }
-        
+        */
     }
     
     //mutating
@@ -157,9 +159,13 @@ class Mesures: ObservableObject, Codable , Identifiable{
     
    //MARK: Sauvegarde sur fichier externe
     // Enregistrer les données sur un fichier externe
-    func save2File()  {
+    
+    // A compléter :
+    // nom du fichier, introduire l'identitée du patient courant
+    // On le pesse en paramètre
+    func save2File(nomPatient : String = "")  {
         if let aSauver = self.toJson(){
-            let nomFichier = NOM_FICHIER_TENSIONS + ".json"
+            let nomFichier = nomPatient + NOM_FICHIER_TENSIONS + ".json"
             let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
             let url = path[0].appendingPathComponent(nomFichier)
             do {
@@ -172,8 +178,11 @@ class Mesures: ObservableObject, Codable , Identifiable{
     }
     
     // lire un fichier s'il existe
-    func readFromFile() -> String? {
-        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(NOM_FICHIER_TENSIONS + ".json")
+    // A compléter :
+    // nom du fichier, introduire l'identitée du patient courant
+    // On le pesse en paramètre
+    func readFromFile(nomPatient : String = "") -> String? {
+        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(nomPatient +  NOM_FICHIER_TENSIONS + ".json")
         do {
             let retour = try String(contentsOf: url, encoding: .utf8)
             return retour
@@ -184,9 +193,9 @@ class Mesures: ObservableObject, Codable , Identifiable{
     }
     
     // Récupérer un fichier externe et utiliser ses valeurs pour la présentation
-    func  recallFromFile()->Bool  {
+    func  recallFromFile(nomPatient : String = "")->Bool  {
         // A écrire
-        guard  let jsonString = readFromFile() else {
+        guard  let jsonString = readFromFile(nomPatient: nomPatient) else {
             return false
         }
         let jsonData = Data(jsonString.utf8)

@@ -28,9 +28,12 @@ struct DateDuJourView: View {
        
         
         Text("Le \(laDate(date: date))")
+            .modifier(TitreBleuModifier())
+        /*
             .font(.system(size: 20, weight: .heavy, design: .rounded))
                 .foregroundColor(Color("BleuSombre"))
                 .shadow(color: Color("BlackLigth"), radius: 0, x: 0, y: 4)
+         */
     }
 }
 

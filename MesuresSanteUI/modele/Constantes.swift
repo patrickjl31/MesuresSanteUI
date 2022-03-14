@@ -16,23 +16,35 @@ import SwiftUI
 
 
 let USERS = "users"
+let PATIENT = "patient"
+let CURRENT_USER = "CurrentUser"
 let TENSIONS = "Tension"
 let SUCRE = "Sucre"
-let RAPPORT = "rapport"
+let RAPPORT = "Rapport"
 
 // Nom du fichier des tensions
 let NOM_FICHIER_TENSIONS = "tensions"
 let NOM_FICHIER_SUCRE = "sucre"
 let NOM_FICHIER_PERSONNE = "personne"
+let NOM_FICHIER_RAPPORT = "rapport"
 
 //couleurs
 let COUL_SYSTO = Color.red
 let COUL_DIASTO = Color.blue
+let COUL_COEUR = Color.purple
+let COUL_OXY = Color.brown
 
 // Textes de Help
 
 let T0_HELP0 = "Surveillez votre santé au jour le jour..."
 let T1_HELP0 = "Votre carnet de suivi santé."
+
+let ScreenWidth = UIScreen.main.bounds.size.width
+
+
+let T0_HELP = "Surveillez votre santé..."
+let T1_HELP = "Tenez à jour vos constantes..."
+
 let HELP = """
 
 Votre carnet de suivi santé vous offre trois  outils complémentaires pour enregistrer les constantes de santé qui serviront à votre médecin, à vos infirmiers, pour suivre l'évolution des constantes de santé au jour le jour.
@@ -77,7 +89,7 @@ Par défaut, l'application enregistre la date et l'heure de l'enregistrement, ma
 """
 
 let T0_HELP3 = "Afficher les résultats"
-let T1_HELP3 = "Le diabète est une maladie chronique que l'on doit surveiller régulièrement."
+let T1_HELP3 = "Le diabète, la rension, doivent être surveillés régulièrement."
 let HELP3 = """
 
 Cette page vous permet d'enregistrer une glycémie à l'aide de boutons curseurs. Vous avez le choix entre une mesure en grammes par litre ou en mmol. Les deux cursseurs sont dorélés.

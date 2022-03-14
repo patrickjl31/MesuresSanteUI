@@ -26,8 +26,8 @@ struct TraceCourbe: View {
     func setMulti()-> Double{
         let maxi = Double( listePointsX.max() ?? 0)
         let mini = Double( listePointsX.min() ?? 0)
-        multi = hauteurCourbe / maxi
-        return multi
+        //multi = hauteurCourbe / maxi
+        return hauteurCourbe / maxi
     }
     
     func dateCourte(d:Date)->String{
@@ -47,14 +47,31 @@ struct TraceCourbe: View {
             let ecartement = Double(geometry.size.width) / Double(listePointsX.count)
             let demiEcart = ecartement / 2
             let debut = geometry.size.height - basDeCourbe
+
+           
             Path(){path in
                 path.move(to: CGPoint(x: demiEcart, y: Double(debut) - (listePointsX[0] * setMulti())))
                 for index in 1..<listePointsX.count{
-                    path.addLine(to: CGPoint(x: demiEcart + (ecartement * Double(index))  , y: Double(debut) - (listePointsX[index]  * setMulti())))
+                    path.addLine(to: CGPoint(x: demiEcart + (ecartement * Double(index))  , y: Double(debut) - (listePointsX[index] * setMulti() )))
                     
                 }
             }
+             
             .stroke(couleur, lineWidth: 4)
+           
+            /*
+            Path(){path in
+               // path.move(to: CGPoint(x: demiEcart + (ecartement * Double(0)), y: Double(debut) - (listePointsX[0]  * setMulti())))
+                
+                ForEach((0..<(listePointsX.count - 1)), id:  \.self) { index in
+                    path.move(to: CGPoint(x: demiEcart + (ecartement * Double(index)), y: Double(debut) - (listePointsX[index]  * setMulti())))
+                    path.addLine(to: CGPoint(x: demiEcart + (ecartement * Double(index + 1)), y: Double(debut) - (listePointsX[index + 1]  * setMulti())))
+                }
+            }
+            .stroke(couleur, lineWidth: 4)
+             
+             */
+
             // Les points
             /*
             CercleVue(centre: CGPoint(x: demiEcart, y: listePointsX[0]  * multi), diametre: 10, colorInt: Color.white, colorExt: Color.red)
@@ -78,8 +95,9 @@ struct TraceCourbe: View {
 
 struct TraceCourbe_Previews: PreviewProvider {
     static var previews: some View {
-        TraceCourbe(listeDates:[Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),],listePointsX: [0.3, 14.0,12.0,8.0,16.0,7.6,12.5,14.0,12.0,8.0,16.0,7.6,12.5,14.0,12.0,8.0,16.0, 0.9,7.6,12.5, 12], couleur: .red,multi: 30)
+        //TraceCourbe(listeDates:[Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date()],listePointsX: [0.3, 14.0,12.0,8.0,16.0,7.6,12.5,14.0,12.0,8.0,16.0,7.6,12.5,14.0,12.0,8.0,16.0, 0.9,7.6,12.5, 12], couleur: .red,multi: 30)
             //.previewLayout(.sizeThatFits)
-            
+            //21 points
+        TraceCourbe(listeDates:[Date(),Date(),Date(),Date()],listePointsX: [10.800000000000001,10.5,7.5,9.8000000000000007], couleur: .red,multi: 30)
     }
 }

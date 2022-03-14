@@ -5,32 +5,55 @@
 //  Created by patrick lanneau on 14/02/2022.
 //
 
+// Sauvegarde git
 import Foundation
 import SwiftUI
 
-class Personne : ObservableObject ,Codable, Identifiable {
+class Personne : ObservableObject ,Codable, Identifiable, Hashable {
     
     //@ObservedObject var datas : Mesures
     
     var id:UUID = UUID()
     @Published var prenom: String = ""
     @Published var nom: String = ""
+    var identite: String {
+        get {
+            return prenom + nom
+        }
+        set {
+            //prenom + nom
+        }
+    }
     
     var poids: Double = 76
     
-    
-    @Published var glycemie: [Glycemie] = []//:MesuresSucre = MesuresSucre()
+    //@Published var glycemie: [Glycemie] = []//:MesuresSucre = MesuresSucre()
     @Published var diabete: MesuresSucre = MesuresSucre()
-    
-    @Published var rapportsQuotidien : [RapportQuotidien] = []//selles:Int = 0
+    @Published var rapportsQuotidien : [RapportQuotidien] = [RapportQuotidien]()
     @Published var tension : Mesures = Mesures()
     //var pourCeJour : [RapportQotidien] = []
     
+    //----------------------------
    
-    enum CodingKeys: CodingKey {
-        case id,prenom, nom, poids,
-        glycemie,diabete,tension
+    enum CodingKeys: String,CodingKey {
+        case id = "id"
+        case prenom = "prenom"
+        case nom = "nom"
+        case poids = "poids"
+        //case glycemie = "glycemie"
+        case diabete = "diabete"
+        case rapportsQuotidien = "rapportsQuotidien"
+        //case rapportsQuotidien = "rapports"
+        case tension = "tension"
     }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(nom)
+        hasher.combine(prenom)
+    }
+    static func == (lhs: Personne, rhs: Personne) -> Bool {
+           return lhs.nom == rhs.nom && lhs.prenom == rhs.prenom
+       }
     
     required init(from decoder: Decoder) throws {
        //tension = Mesures()
@@ -43,42 +66,39 @@ class Personne : ObservableObject ,Codable, Identifiable {
 
         poids = try container.decode(Double.self, forKey: .poids)
         // Utiliser json
-        glycemie = try container.decode([Glycemie].self, forKey: .glycemie)
+        //glycemie = try container.decode([Glycemie].self, forKey: .glycemie)
         diabete = try container.decode(MesuresSucre.self, forKey: .diabete)
+        rapportsQuotidien = try container.decode([RapportQuotidien].self, forKey: .rapportsQuotidien)
+        //rapportsQuotidien = try container.decode(Rapport.self, forKey: .rapportsQuotidien)
         tension = try container.decode(Mesures.self, forKey: .tension)
         
         // Utiliser userdefault
         
     }
     
+    init(nom:String,prenom: String){
+        self.nom = nom
+        self.prenom = prenom
+        
+        //recallSucre()
+        //recallTension()
+        //recallRapports()
+    }
+
+    
     init(){
-        recallIdentity()
+        //recallIdentity()
+        /*
+        if !recallFromFile(){
+            
+        }
+        
         recallSucre()
         recallTension()
         recallRapports()
-        
+        */
     }
     
-    /*
-    tension = Mesures()
-    diabete = MesuresSucre()
-    recallIdentity()
-    
-    if let dusucre = recallSucre(){
-        glycemie = dusucre
-    }
-    
-    if !recallPersonne(nom: RAPPORT){
-        if let anciennesMesures = recall(){
-            rapportsQuotidien = anciennesMesures
-        }
-        else {
-            rapportsQuotidien = rapportsQuotidien.sorted(by: {
-                $0.date < $1.date
-            })
-        }
-    }
-*/
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
@@ -89,8 +109,9 @@ class Personne : ObservableObject ,Codable, Identifiable {
         try container.encode(nom, forKey: .nom)
 
         try container.encode(poids, forKey: .poids)
-        try container.encode(glycemie, forKey: .glycemie)
+        //try container.encode(glycemie, forKey: .glycemie)
         try container.encode(diabete, forKey: .diabete)
+        try container.encode(rapportsQuotidien, forKey: .rapportsQuotidien)
         try container.encode(tension, forKey: .tension)
         
     }
@@ -110,13 +131,14 @@ class Personne : ObservableObject ,Codable, Identifiable {
         glycemie = glycemie.sucre.sorted(by: {
             $0.date < $1.date
         })
-        */
+        
         glycemie = glycemie.sorted(by: {
             $0.date < $1.date
         })
-         
+         */
     }
     
+    // Attention, utiliser plutot l'acces par Users
     func effaceIdentite(){
         prenom = ""
         nom = ""
@@ -128,26 +150,33 @@ class Personne : ObservableObject ,Codable, Identifiable {
     
     func removeRapport(at indexSet: IndexSet){
         rapportsQuotidien.remove(atOffsets: indexSet)
-        savePersonne(nom: RAPPORT)
+        //savePersonne()
     }
     
     func addRapport(rapport:RapportQuotidien){
         rapportsQuotidien.append(rapport)
-        savePersonne(nom: RAPPORT)
+        //savePersonne()
+    }
+    
+    func addDiabete(mesure:MesureSucre){
+        diabete.sucre.append(mesure)
+    }
+    func addTension(mesure:Mesure){
+        tension.maTension.append(mesure)
     }
     
     func enregistrerGlycemie(sucre : Glycemie){
-        glycemie.append(sucre)
+        //glycemie.append(sucre)
         // On enregistre
-        saveGlycemie2File()
+        //saveGlycemie2File()
     }
     //-------------------------------------------
     //-------Gestion des fichiers ----------------
     
-    func exportDatas(name : String) {
-        // Exportation des donnees
-    }
-    
+    // MARK: - Identitée
+    //Enregistrer identité en local
+    // Il s'agit de l'utilisateur courant
+    // Attention, utiliser plutot l'acces par Users
     func saveIdentity(){
         let defaults = UserDefaults.standard
         defaults.set(nom, forKey: "Nom")
@@ -160,40 +189,54 @@ class Personne : ObservableObject ,Codable, Identifiable {
         prenom = defaults.object(forKey:"Prenom") as? String ?? ""
     }
     
+    //------- Exportations-----
+    func exportDatas(name : String) {
+            // Exportation des donnees
+    }
+
     //-----------  fchiers locaux------
     func saveSucre(){
         let ident = stringIdentity() + SUCRE
         let defaults = UserDefaults.standard
-        defaults.set(diabete, forKey: ident)
+        //defaults.set(diabete, forKey: "diabete")//------------------------------------------------------
+        // enregistrement sur fichier
+        save2File()
     }
     
     func recallSucre(){
         let ident = stringIdentity() + SUCRE
         let userdefault = UserDefaults.standard
-        diabete = userdefault.object(forKey: ident) as? MesuresSucre ?? MesuresSucre()
+        diabete = userdefault.object(forKey: "diabete") as? MesuresSucre ?? MesuresSucre()
+        recallFromFile()
     }
     
     
     func saveRapports(){
         let ident = stringIdentity() + RAPPORT
         let defaults = UserDefaults.standard
-        defaults.set(rapportsQuotidien, forKey: ident)
+        //defaults.set(rapportsQuotidien, forKey: "rapportsQuotidien") //-----------------------------------------
+        // enregistrement sur fichier
+        save2File()
     }
     func recallRapports() {
-        let ident = stringIdentity() + TENSIONS
+        let ident = stringIdentity() + RAPPORT
         let userdefault = UserDefaults.standard
-        rapportsQuotidien = userdefault.object(forKey: ident) as? [RapportQuotidien] ?? []
+        rapportsQuotidien = userdefault.object(forKey: "rapportsQuotidien") as? [RapportQuotidien] ?? []
+        recallFromFile()
     }
     func saveTension(){
         let ident = stringIdentity() + TENSIONS
         let defaults = UserDefaults.standard
-        defaults.set(diabete, forKey: ident)
+        //defaults.set(tension, forKey: "tension") //------------------------------------------
+        // enregistrement sur fichier
+        save2File()
     }
     
     func recallTension(){
-        let ident = stringIdentity() + SUCRE
+        let ident = stringIdentity() + TENSIONS
         let userdefault = UserDefaults.standard
-        tension = userdefault.object(forKey: ident) as? Mesures ?? Mesures()
+        tension = userdefault.object(forKey: "tension") as? Mesures ?? Mesures()
+        recallFromFile()
     }
     
 
@@ -201,9 +244,11 @@ class Personne : ObservableObject ,Codable, Identifiable {
     
     //MARK: Sauvegarde sur fichier externe
      // Enregistrer les données sur un fichier externe
-    func savePersonne(nom: String){
+    //nom: String
+    func savePersonne(){
         if let aSauver = self.toJson(){
-            let nomFichier = nom + ".json"
+            let ident = stringIdentity()
+            let nomFichier = ident + ".json"
             let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
             let url = path[0].appendingPathComponent(nomFichier)
             do {
@@ -218,9 +263,10 @@ class Personne : ObservableObject ,Codable, Identifiable {
     
     //------------------------------------
     // Enregistrer les données de glycemiesur un fichier externe
-    func saveGlycemie2File()  {
-        if let aSauver = glycemieToJson(){
-            let nomFichier = NOM_FICHIER_SUCRE + ".json"
+    func saveSucreFile()  {
+        if let aSauver = sucreToJson(){
+            let ident = stringIdentity()
+            let nomFichier = ident + "_" + NOM_FICHIER_SUCRE + ".json"
             let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
             let url = path[0].appendingPathComponent(nomFichier)
             do {
@@ -233,9 +279,9 @@ class Personne : ObservableObject ,Codable, Identifiable {
     }
     
     // Json : -encode maTension
-    func glycemieToJson() -> String? {
+    func sucreToJson() -> String? {
         let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(glycemie),
+        if let encoded = try? encoder.encode(diabete),
            let jsonString = String(data: encoded, encoding: .utf8){
             return jsonString
         }
@@ -248,6 +294,7 @@ class Personne : ObservableObject ,Codable, Identifiable {
     
     
     // lire un fichier s'il existe
+    // On lui passe un nom : identitée + nom type du fichier (NOM_FICHIER_RAPPORT)...
     func readFromFile(nom : String) -> String? {
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(nom + ".json")
         do {
@@ -276,9 +323,23 @@ class Personne : ObservableObject ,Codable, Identifiable {
         return false
     }
     
+    
+    // MARK: - Sauvegarde personne
+    
     func toJson() -> String? {
         let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(rapportsQuotidien),
+        encoder.outputFormatting = .prettyPrinted
+        if let encoded = try? encoder.encode(self),
+           let jsonString = String(data: encoded, encoding: .utf8){
+            return jsonString
+        }
+        return nil
+    }
+    
+    func rapportToJson() -> String? {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        if let encoded = try? encoder.encode(self.rapportsQuotidien),
            let jsonString = String(data: encoded, encoding: .utf8){
             return jsonString
         }
@@ -286,8 +347,78 @@ class Personne : ObservableObject ,Codable, Identifiable {
     }
     
     
-     
     
+    // MARK: - Sauvegarde en json
+    
+    // Enregistrer les données sur un fichier externe
+    func save2File()  {
+        let ident = stringIdentity()
+        if let aSauver = self.toJson(){
+            let nomFichier = ident + ".json"
+            let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            let url = path[0].appendingPathComponent(nomFichier)
+            do {
+                //let retour = try String(contentsOf: url, encoding: .utf8)
+                try aSauver.write(to: url, atomically: true, encoding: .utf8)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    // Récupérer un fichier externe et utiliser ses valeurs pour la présentation
+    func  recallFromFile()->Bool  {
+        // A écrire
+        guard  let jsonString = readFromFile() else {
+            return false
+        }
+        let jsonData = Data(jsonString.utf8)
+        let decoder = JSONDecoder()
+        do {
+            let result = try decoder.decode(Personne.self, from: jsonData)
+            //self.glycemie = result.glycemie
+            self.diabete = result.diabete
+            self.tension = result.tension
+            self.rapportsQuotidien = result.rapportsQuotidien
+            self.poids = result.poids
+            
+            return true
+        } catch {
+            print(error.localizedDescription)
+        }
+        return false
+    }
+    
+    // lire un fichier s'il existe
+    func readFromFile() -> String? {
+        let ident = stringIdentity()
+        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(ident + ".json")
+        do {
+            let retour = try String(contentsOf: url, encoding: .utf8)
+            return retour
+        }  catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+ 
+    // Exopr to airdrop
+    func toAirdrop(mesuresDe: String = TENSIONS)->String {
+        var content = ""
+        if mesuresDe == TENSIONS {
+            let sortie = tension.toJson() ?? ""
+            return sortie
+        }
+        if mesuresDe == SUCRE {
+            let sortie = diabete.toJson() ?? ""
+            return sortie
+        }
+        if mesuresDe == RAPPORT {
+            let sortie = rapportToJson() ?? ""
+            return sortie
+        }
+        return content
+    }
     
     
     
@@ -340,3 +471,5 @@ let testSucre : [Glycemie] = [
 
 ]
  */
+
+var testPersonne = Personne()

@@ -36,6 +36,7 @@ class MesuresSucre: ObservableObject, Codable, Identifiable {
     }
     
     init() {
+        /*
         if !recallFromFile(){
             if let anciennesMesures = recall(){
                 sucre = anciennesMesures
@@ -46,7 +47,7 @@ class MesuresSucre: ObservableObject, Codable, Identifiable {
                 })
             }
         }
-        
+        */
     }
     
     //mutating
@@ -167,7 +168,7 @@ class MesuresSucre: ObservableObject, Codable, Identifiable {
             let retour = try String(contentsOf: url, encoding: .utf8)
             return retour
         }  catch {
-            print("Error lectre") //(error.localizedDescription)
+            print("Error lecture sucre") //(error.localizedDescription)
             return nil
         }
     }

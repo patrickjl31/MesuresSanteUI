@@ -10,6 +10,7 @@ import SwiftUI
 struct BlocSlider: View {
     var texte : String = ""
     @Binding var valeur : Double
+    @State var isChanged : Bool = false
     var mini:Double = 0.1
     var maxi : Double = 100.0
     
@@ -31,7 +32,7 @@ struct BlocSlider: View {
                 Slider(value: $valeur, in: mini...maxi, step: pas) {
                     Text("Valeur")
                 } onEditingChanged: { changed in
-                    //
+                        isChanged = changed
             }
             Text("\(maxi, specifier: precision)")
             } // HStack
@@ -47,7 +48,7 @@ struct BlocSlider: View {
 
 struct BlocSlider_Previews: PreviewProvider {
     static var previews: some View {
-        BlocSlider( texte: "pipi : ", valeur: .constant(2), pas: 0.1)
-        BlocSlider( texte: "pipi : ", valeur: .constant(2), pas: 1)
+        BlocSlider( texte: "pipi : ", valeur: .constant(20), pas: 0.1)
+        //BlocSlider( texte: "pipi : ", valeur: .constant(2), pas: 1)
     }
 }
