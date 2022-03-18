@@ -10,7 +10,7 @@ import SwiftUI
 struct ListeSucreView: View {
     // MARK: - Propriétéss
     @ObservedObject var user : Users
-    @ObservedObject var patient : Personne
+    //@ObservedObject var patient : Personne
     
     //@ObservedObject var datas : Mesures
     
@@ -39,22 +39,27 @@ struct ListeSucreView: View {
             
             
             VStack {
-                let sucres : [MesureSucre] = patient.diabete.sucre
-                EnTeteSucre()
-                List {
-                    ForEach(sucres, id: \.id){(item) in
-                        let l1 = laDate(date: item.dateMesure)
-                        let l2 = "Glycémie : "
-                        ElemListeSucre(ligne1: l1, ligne2: l2, valeur: item.taux)
-                            
+                //let sucres : [MesureSucre] = patient.diabete.sucre
+                if user.existCurrentUser(){
+                    let sucres : [MesureSucre] = user.listeUsers[user.userCourant].diabete.sucre
+                    EnTeteSucre()
+                    List {
+                        ForEach(sucres, id: \.id){(item) in
+                            let l1 = laDate(date: item.dateMesure)
+                            let l2 = "Glycémie : "
+                            ElemListeSucre(ligne1: l1, ligne2: l2, valeur: item.taux)
+                                
+                        }
+                        .onDelete(perform: self.removeRows)
+                        /*
+                        rapport in
+                        ElemListePatient(patient: patient, datas: datas, rapport: rapport, ligne: "Rapport")
+                        */
+                        
                     }
-                    .onDelete(perform: self.removeRows)
-                    /*
-                    rapport in
-                    ElemListePatient(patient: patient, datas: datas, rapport: rapport, ligne: "Rapport")
-                    */
-                    
+                
                 }
+                
             }// VStack
             
         }
@@ -69,6 +74,6 @@ struct ListeSucreView: View {
 struct ListeSucreView_Previews: PreviewProvider {
     static var previews: some View {
         //ListeSucreView(patient: Personne(), datas: Mesures())
-        ListeSucreView(user: Users(), patient: Personne())
+        ListeSucreView(user: Users())
     }
 }

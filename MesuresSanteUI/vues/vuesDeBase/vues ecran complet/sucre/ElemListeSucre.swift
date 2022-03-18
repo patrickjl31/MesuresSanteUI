@@ -18,7 +18,7 @@ struct ElemListeSucre: View {
     
     var body: some View {
         HStack{
-            Image(systemName: "cup.and.saucer")
+            Image(systemName: SYMBOLE_COUVERT)
                 
                 .font(.system(size: 35, weight: .medium, design: .rounded) )
                 .foregroundColor(.red)

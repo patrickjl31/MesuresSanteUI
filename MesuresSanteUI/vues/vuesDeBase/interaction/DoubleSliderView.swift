@@ -26,7 +26,7 @@ struct DoubleSliderView: View {
     var couleur2 : Color = .red
     
     @State var val1:Double = 1.0
-    @State var val2:Double = 20
+    @State var val2:Double = 5.5
     
     // MARK: - Fonctions
     func evalPas(precision : Int)->Double{
@@ -37,9 +37,22 @@ struct DoubleSliderView: View {
         return res
     }
     
+    /*
+    init(){
+        self.val1 = (maxi1 + mini1) / 2
+        self.val2 = (maxi2 + mini2) / 2
+    }
+    */
     
     var body: some View {
         VStack {
+            let max2 = maxi1 * 5.5
+            let min2 = mini1 * 5.5
+            //val1 = (maxi1 + mini1) / 2
+            //val2 = (maxi2 + mini2) / 2
+            //let mid1 = (maxi1 + mini1) / 2
+            //let mid2 = (maxi2 + mini2) / 2
+            
             let codeDigits = "%.\(precision)f"
             Text("\(titre1) : \(val1, specifier: codeDigits)")
                 .foregroundColor(couleur1)
@@ -49,7 +62,7 @@ struct DoubleSliderView: View {
                 Slider(value: $val1, in: mini1...maxi1, step: pas) {
                     Text("Valeur")
                 } onEditingChanged: { changed in
-                    val2 = val1 * 14.5
+                    val2 = val1 * 5.5
                     valeur = val1
             }
                 .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
@@ -64,26 +77,26 @@ struct DoubleSliderView: View {
             Text("\(titre2) : \(val2, specifier: codeDigits)")
                 .foregroundColor(couleur2)
             HStack {
-                Text("\(mini2, specifier: codeDigits)")
+                Text("\(min2, specifier: codeDigits)")
                     .foregroundColor(couleur2)
-                Slider(value: $val2, in: mini2...maxi2, step: pas) {
+                Slider(value: $val2, in: min2...max2, step: pas) {
                     Text("Valeur 2")
                 } onEditingChanged: { changed in
-                    val1 = val2 / 14.5
+                    val1 = val2 / 5.5
                     valeur = val1
             }
                 .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
                 .accentColor(couleur2)
                 
-                Text("\(maxi2, specifier: codeDigits)")
+                Text("\(max2, specifier: codeDigits)")
                     .foregroundColor(couleur2)
                 
             } // HStack
             
-            Text("Valeur en G/L : \(valeur, specifier: codeDigits)")
+            Text("Valeur en G/L : \(val1, specifier: codeDigits)")
             
         }
-        .font(.system(size: 18, weight: .bold, design: .rounded))
+        .font(.system(size: 14, weight: .bold, design: .rounded))
 
     }
 }

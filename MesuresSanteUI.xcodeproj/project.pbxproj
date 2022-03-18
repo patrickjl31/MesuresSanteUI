@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A1C06C027E32F2B00E6522B /* PointSurCourbeVue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C06BF27E32F2B00E6522B /* PointSurCourbeVue.swift */; };
 		2A4399C327DA553700DC97A3 /* ExtractedVievBar1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4399C227DA553700DC97A3 /* ExtractedVievBar1.swift */; };
 		2A4399C527DC9BC300DC97A3 /* TraceCourbe1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4399C427DC9BC300DC97A3 /* TraceCourbe1.swift */; };
 		2A4399CB27DE6B1800DC97A3 /* MyTitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4399CA27DE6B1800DC97A3 /* MyTitleModifier.swift */; };
@@ -70,6 +71,11 @@
 		2A9EB67327B8131B00148422 /* FondEcranView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB67227B8131B00148422 /* FondEcranView.swift */; };
 		2A9EB67527B8174D00148422 /* SaisieSucreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB67427B8174D00148422 /* SaisieSucreView.swift */; };
 		2A9EB67727B8191800148422 /* MesureSucre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB67627B8191800148422 /* MesureSucre.swift */; };
+		2ABDE98527E214EA00B15159 /* TestRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABDE98427E214EA00B15159 /* TestRadioButton.swift */; };
+		2ABDE98927E22B0900B15159 /* RadioButtonsModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABDE98827E22B0900B15159 /* RadioButtonsModifier.swift */; };
+		2ABDE98B27E28D6400B15159 /* SucrePointVue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABDE98A27E28D6400B15159 /* SucrePointVue.swift */; };
+		2AD47A1027E0BA8F0088C47E /* RadioButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD47A0F27E0BA8F0088C47E /* RadioButtonsView.swift */; };
+		2AD47A1327E0BB370088C47E /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD47A1227E0BB370088C47E /* RadioButton.swift */; };
 		2ADC897027B930DB006C362D /* MesuresSucre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADC896F27B930DB006C362D /* MesuresSucre.swift */; };
 		2ADC897227B94A09006C362D /* FondEcranSucre.view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADC897127B94A09006C362D /* FondEcranSucre.view.swift */; };
 		2ADC897427B94E8B006C362D /* SaisieDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADC897327B94E8B006C362D /* SaisieDate.swift */; };
@@ -104,6 +110,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A1C06BF27E32F2B00E6522B /* PointSurCourbeVue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSurCourbeVue.swift; sourceTree = "<group>"; };
 		2A4399C227DA553700DC97A3 /* ExtractedVievBar1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractedVievBar1.swift; sourceTree = "<group>"; };
 		2A4399C427DC9BC300DC97A3 /* TraceCourbe1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceCourbe1.swift; sourceTree = "<group>"; };
 		2A4399CA27DE6B1800DC97A3 /* MyTitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTitleModifier.swift; sourceTree = "<group>"; };
@@ -168,6 +175,11 @@
 		2A9EB67227B8131B00148422 /* FondEcranView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FondEcranView.swift; sourceTree = "<group>"; };
 		2A9EB67427B8174D00148422 /* SaisieSucreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaisieSucreView.swift; sourceTree = "<group>"; };
 		2A9EB67627B8191800148422 /* MesureSucre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesureSucre.swift; sourceTree = "<group>"; };
+		2ABDE98427E214EA00B15159 /* TestRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRadioButton.swift; sourceTree = "<group>"; };
+		2ABDE98827E22B0900B15159 /* RadioButtonsModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonsModifier.swift; sourceTree = "<group>"; };
+		2ABDE98A27E28D6400B15159 /* SucrePointVue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucrePointVue.swift; sourceTree = "<group>"; };
+		2AD47A0F27E0BA8F0088C47E /* RadioButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonsView.swift; sourceTree = "<group>"; };
+		2AD47A1227E0BB370088C47E /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		2ADC896F27B930DB006C362D /* MesuresSucre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesuresSucre.swift; sourceTree = "<group>"; };
 		2ADC897127B94A09006C362D /* FondEcranSucre.view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FondEcranSucre.view.swift; sourceTree = "<group>"; };
 		2ADC897327B94E8B006C362D /* SaisieDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaisieDate.swift; sourceTree = "<group>"; };
@@ -213,6 +225,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A1C06C127E33CF400E6522B /* unused */ = {
+			isa = PBXGroup;
+			children = (
+				2A9EB63927B6918800148422 /* SaisieTensionView.swift */,
+			);
+			path = unused;
+			sourceTree = "<group>";
+		};
 		2A4399C627DD004C00DC97A3 /* unused */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +254,7 @@
 			children = (
 				2A4399CA27DE6B1800DC97A3 /* MyTitleModifier.swift */,
 				2A4399D027DE6F0900DC97A3 /* TitreBleuModifier.swift */,
+				2ABDE98827E22B0900B15159 /* RadioButtonsModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -253,6 +274,8 @@
 			isa = PBXGroup;
 			children = (
 				2A9EB64227B6918800148422 /* CercleVue.swift */,
+				2A1C06BF27E32F2B00E6522B /* PointSurCourbeVue.swift */,
+				2ABDE98A27E28D6400B15159 /* SucrePointVue.swift */,
 				2A9EB66E27B8028B00148422 /* CoeurVue.swift */,
 			);
 			path = "images points";
@@ -288,8 +311,9 @@
 		2A85A8F027BD77780096BF60 /* interaction */ = {
 			isa = PBXGroup;
 			children = (
-				2A9EB63C27B6918800148422 /* PickerDate.swift */,
+				2AD47A1127E0BA9E0088C47E /* radio */,
 				2ADC897327B94E8B006C362D /* SaisieDate.swift */,
+				2A9EB63C27B6918800148422 /* PickerDate.swift */,
 				2ADC897927B9A307006C362D /* DoubleSliderView.swift */,
 				2A9EB63A27B6918800148422 /* DemandeDouble.swift */,
 				2A85A8F127BD78230096BF60 /* BlocSlider.swift */,
@@ -474,10 +498,10 @@
 			children = (
 				2ADD5BA527D33A9500FEFE3A /* ConfigView.swift */,
 				2A9EB67427B8174D00148422 /* SaisieSucreView.swift */,
-				2A9EB67027B8124000148422 /* SaisieConstantes.swift */,
-				2A9EB63927B6918800148422 /* SaisieTensionView.swift */,
 				2AF6263527D6855A00C13E04 /* SaisieTensionView1.swift */,
+				2A9EB67027B8124000148422 /* SaisieConstantes.swift */,
 				2ADC898127BAC698006C362D /* RapportDuJourView.swift */,
+				2A1C06C127E33CF400E6522B /* unused */,
 				2ADD5BB427D3C86B00FEFE3A /* Accueil */,
 				2AE3171627CD193B00B11582 /* liste usagers */,
 				2A49B3B327C3D93000E4319F /* rapporrt */,
@@ -486,6 +510,16 @@
 				2A9EB64327B6918800148422 /* Help */,
 			);
 			path = "vues ecran complet";
+			sourceTree = "<group>";
+		};
+		2AD47A1127E0BA9E0088C47E /* radio */ = {
+			isa = PBXGroup;
+			children = (
+				2AD47A0F27E0BA8F0088C47E /* RadioButtonsView.swift */,
+				2ABDE98427E214EA00B15159 /* TestRadioButton.swift */,
+				2AD47A1227E0BB370088C47E /* RadioButton.swift */,
+			);
+			path = radio;
 			sourceTree = "<group>";
 		};
 		2ADD5BA427D33A3100FEFE3A /* groupe content V */ = {
@@ -670,6 +704,7 @@
 				2A9EB67527B8174D00148422 /* SaisieSucreView.swift in Sources */,
 				2ADD5BB827D4CD0400FEFE3A /* LigneUserView.swift in Sources */,
 				2A85A8EF27BD34110096BF60 /* ElemListePatient.swift in Sources */,
+				2ABDE98927E22B0900B15159 /* RadioButtonsModifier.swift in Sources */,
 				2A49B3B527C7C57300E4319F /* CourbrSucreView.swift in Sources */,
 				2A9EB66927B7D11800148422 /* LargeGraphicView.swift in Sources */,
 				2AE316F327CA4EF600B11582 /* AccueilPatients.swift in Sources */,
@@ -681,6 +716,7 @@
 				2AF6263427D6829000C13E04 /* LargeGraphicView1.swift in Sources */,
 				2ADD5BA827D33B5300FEFE3A /* DemandeNomSimple.swift in Sources */,
 				2A9EB67727B8191800148422 /* MesureSucre.swift in Sources */,
+				2AD47A1327E0BB370088C47E /* RadioButton.swift in Sources */,
 				2A9EB65527B6918800148422 /* TitulatureView.swift in Sources */,
 				2ADC898227BAC698006C362D /* RapportDuJourView.swift in Sources */,
 				2A85A91727C2A4F80096BF60 /* TensionBarView.swift in Sources */,
@@ -690,8 +726,11 @@
 				2A9EB66327B6918900148422 /* ResultatsView.swift in Sources */,
 				2A9EB65127B6918800148422 /* SaisieTensionView.swift in Sources */,
 				2A9EB65827B6918800148422 /* BlocBouton.swift in Sources */,
+				2ABDE98B27E28D6400B15159 /* SucrePointVue.swift in Sources */,
 				2A9EB65627B6918800148422 /* BeauBouton.swift in Sources */,
 				2AF2E7BA27D289C900E3FA48 /* DemandeNomBis.swift in Sources */,
+				2AD47A1027E0BA8F0088C47E /* RadioButtonsView.swift in Sources */,
+				2A1C06C027E32F2B00E6522B /* PointSurCourbeVue.swift in Sources */,
 				2ADD5BB327D38ADD00FEFE3A /* LigneIdentite.swift in Sources */,
 				2AE3171827CD570500B11582 /* LegendeSucre.swift in Sources */,
 				2A85A90E27C02CDA0096BF60 /* Help0.swift in Sources */,
@@ -699,6 +738,7 @@
 				2AE3171327CD14C300B11582 /* ListeUsers.swift in Sources */,
 				2A4399D127DE6F0900DC97A3 /* TitreBleuModifier.swift in Sources */,
 				2A85A8ED27BD2D770096BF60 /* BlocStepper.swift in Sources */,
+				2ABDE98527E214EA00B15159 /* TestRadioButton.swift in Sources */,
 				2ADC897C27BA6EE4006C362D /* Personne.swift in Sources */,
 				2ADD5BA627D33A9500FEFE3A /* ConfigView.swift in Sources */,
 				2A9EB66227B6918900148422 /* ListeView.swift in Sources */,

@@ -77,7 +77,7 @@ struct ContentView: View {
                             Text("Tension") }
                     .tag(2)
                      */
-                    SaisieSucreView(user: users, patient: patient).tabItem
+                    SaisieSucreView(user: users).tabItem
                         {
                             Image(systemName: "pills")
                                 .frame(width: 50, height: 50, alignment: .center)

@@ -261,8 +261,10 @@ struct SaisieTensionView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         NavigationLink {
-                            
-                            Courbes1View(patient: patient)
+                            if user.existCurrentUser(){
+                                Courbes1View(patient: user.listeUsers[user.userCourant])
+                            }
+                           
                         } label: {
                             VStack{
                                 //Image(systemName: "waveform.path.ecg.rectangle")
@@ -278,8 +280,10 @@ struct SaisieTensionView: View {
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
                         NavigationLink {
+                            if user.existCurrentUser(){
+                                TensionBarView(patient: user.listeUsers[user.userCourant])
+                            }
                             
-                            TensionBarView(patient: user.listeUsers[user.userCourant])
                         } label: {
                             VStack{
                                 Image(systemName: "chart.bar.xaxis")

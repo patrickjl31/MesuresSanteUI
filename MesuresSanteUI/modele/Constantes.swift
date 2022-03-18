@@ -34,6 +34,17 @@ let COUL_DIASTO = Color.blue
 let COUL_COEUR = Color.purple
 let COUL_OXY = Color.brown
 
+// Noms des symboles utilisés
+let SYMBOLE_COEUR = "heart.circle"
+let SYMBOLE_COUVERT = "fork.knife.circle"
+let SYMBOLE_CUP = "cup.and.saucer"
+let SYMBOLE_CUBE = "cube"
+let SYMBOLE_TROUSSE_MEDICALE = "cross.case"
+let SYMBOLE_OEIL = "eye"
+
+// Sucre
+let ListeMomentsSucre = ["Réveil", "Apres petit déjeuner", "Avanr déjeuner", "Après déjeuner", "Avant diner", "Couché"]
+
 // Textes de Help
 
 let T0_HELP0 = "Surveillez votre santé au jour le jour..."

@@ -60,7 +60,7 @@ struct LargeGraphicSucre: View {
                                 CarroyageHorizontal(limB: courbe.mini, limH: courbe.maxi, basDeCourbe: 100, hauteurCourbe: 400)
                                                                     //.frame(width: 800, height: 200)
                                 
-                                TraceCourbe1(listeDates: courbe.dates,listePointsX: courbe.valSucre,yMax: courbe.maxi, yMin: courbe.mini,  couleur: COUL_SYSTO, basDeCourbe: 100)
+                                TraceCourbe1(symbole: SYMBOLE_COUVERT ,listeDates: courbe.dates,listePointsX: courbe.valSucre,yMax: courbe.maxi, yMin: courbe.mini,  couleur: COUL_SYSTO, basDeCourbe: 100)
                                     .padding(.horizontal, 20)
                                     //.frame(width: 800, height: 200)
                                 

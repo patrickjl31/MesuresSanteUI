@@ -42,10 +42,10 @@ struct LargeGraphicView1: View {
                                 
                                 CarroyageHorizontal(limB: courbes.mini, limH: courbes.maxi, basDeCourbe: 100,  hauteurCourbe: 400)
                                 //trace(quoi: "mini : \(courbes.mini), maxi : \(courbes.maxi)")
-                                TraceCourbe1(listeDates: courbes.dates,listePointsX: courbes.systol,yMax: courbes.maxi, yMin: courbes.mini, couleur: COUL_SYSTO, basDeCourbe: 100)
+                                TraceCourbe1(symbole: SYMBOLE_COEUR ,listeDates: courbes.dates,listePointsX: courbes.systol,yMax: courbes.maxi, yMin: courbes.mini, couleur: COUL_SYSTO, basDeCourbe: 100)
                                     .padding(.horizontal, 20)
                                     //.frame(width: 800, height: 200)
-                                TraceCourbe1(listeDates: courbes.dates,listePointsX: courbes.diastol ,yMax: courbes.maxi, yMin: courbes.mini, couleur: COUL_DIASTO, basDeCourbe: 100)
+                                TraceCourbe1(symbole: SYMBOLE_COEUR ,listeDates: courbes.dates,listePointsX: courbes.diastol ,yMax: courbes.maxi, yMin: courbes.mini, couleur: COUL_DIASTO, basDeCourbe: 100)
                                     .padding(.horizontal, 20)
                                     //.frame(width: 800, height: 200)
                                 /*

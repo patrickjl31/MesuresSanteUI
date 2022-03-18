@@ -95,6 +95,7 @@ struct SaisieTensionView1: View {
                     FondEcranView()
                         .opacity(pulse ? 0.4 : 0.1)
                         .scaleEffect(pulse ? 1.1 : 0.8)
+                    /*
                         .onAppear(){
                             DispatchQueue.main.async {
                                 // << postpone till end of views construction !!
@@ -105,6 +106,7 @@ struct SaisieTensionView1: View {
                             }
                                 //pulse.toggle()
                         }
+                    */
                    
                     VStack {
                                 
@@ -261,7 +263,10 @@ struct SaisieTensionView1: View {
                     ToolbarItem(placement: .navigationBarLeading) {
                         NavigationLink {
                             //ListeView(patient: patient, datas: datas)
-                            Courbes1View(patient: user.listeUsers[user.userCourant])
+                            if user.existCurrentUser(){
+                                Courbes1View(patient: user.listeUsers[user.userCourant])
+                            }
+                            
                         } label: {
                             VStack{
                                 //Image(systemName: "waveform.path.ecg.rectangle")
@@ -277,10 +282,10 @@ struct SaisieTensionView1: View {
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
                         NavigationLink {
-                            //ListeView(patient: patient, datas: datas)
-                            //Courbes1View(patient: patient, datas: datas)
-                            //TensionBarView(patient: user.listeUsers[user.userCourant], datas: user.listeUsers[user.userCourant].tension)
-                            TensionBarView(patient: user.listeUsers[user.userCourant])
+                            if user.existCurrentUser(){
+                                TensionBarView(patient: user.listeUsers[user.userCourant])
+                            }
+                            
                         } label: {
                             VStack{
                                 Image(systemName: "chart.bar.xaxis")

@@ -10,6 +10,7 @@ import SwiftUI
 struct TraceCourbe1: View {
     // La courbe est inversée
     
+    var symbole : String = SYMBOLE_COEUR
     var listeDates:[Date] = []
     var listePointsX : [Double]
     
@@ -75,7 +76,8 @@ struct TraceCourbe1: View {
                 let d = dateCourte(d: listeDates[index])
                 let v = " -> \(String(format: "%.2f", listePointsX[index]))"
                 let texte = listeDates.count == listePointsX.count ?"Relevé du \(d): \(v)" : ""
-                CoeurVue(centre: CGPoint(x: demiEcart + (ecartement * Double(index))  , y  : Double(debut) - ((listePointsX[index] - yMin) * yUnite)), diametre: 20, colorInt: Color.white, colorExt: couleur, legende: texte)
+                //CoeurVue(centre: CGPoint(x: demiEcart + (ecartement * Double(index))  , y  : Double(debut) - ((listePointsX[index] - yMin) * yUnite)), diametre: 20, colorInt: Color.white, colorExt: couleur, legende: texte)
+                PointSurCourbeVue(symbole: symbole, centre: CGPoint(x: demiEcart + (ecartement * Double(index))  , y  : Double(debut) - ((listePointsX[index] - yMin) * yUnite)), diametre: 20, colorInt: Color.white, colorExt: couleur, legende: texte)
             }
             
             //CarroyageHorizontal(limB: Int(listePointsX.min()!), limH: Int(listePointsX.max()!), multi: Int(multi))

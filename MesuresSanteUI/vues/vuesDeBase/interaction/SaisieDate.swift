@@ -32,7 +32,7 @@ struct SaisieDate: View {
                 
             }
         }
-        .font(.system(size: 18, weight: .bold, design: .rounded))
+        //.font(.system(size: 18, weight: .bold, design: .rounded))
         .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
     }
 }

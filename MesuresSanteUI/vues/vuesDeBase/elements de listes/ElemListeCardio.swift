@@ -17,7 +17,7 @@ struct ElemListeCardio: View {
     
     var body: some View {
         HStack{
-            Image(systemName: "heart.fill")
+            Image(systemName: SYMBOLE_COEUR)
                 
                 .font(.system(size: 35, weight: .medium, design: .rounded) )
                 .foregroundColor(.red)

@@ -38,10 +38,10 @@ struct LargeGraphicView: View {
                                 
                                 CarroyageHorizontal(limB: courbes.mini, limH: courbes.maxi, basDeCourbe: 100, hauteurCourbe: 400)
                                 
-                                TraceCourbe(listeDates: courbes.dates,listePointsX: courbes.systol, couleur: COUL_SYSTO, multi: 30)
+                                TraceCourbe(symbole: SYMBOLE_COEUR ,listeDates: courbes.dates,listePointsX: courbes.systol, couleur: COUL_SYSTO, multi: 30)
                                     .padding(.horizontal, 20)
                                     //.frame(width: 800, height: 200)
-                                TraceCourbe(listeDates: courbes.dates,listePointsX: courbes.diastol, couleur: COUL_DIASTO, multi: 30)
+                                TraceCourbe(symbole: SYMBOLE_COEUR ,listeDates: courbes.dates,listePointsX: courbes.diastol, couleur: COUL_DIASTO, multi: 30)
                                     .padding(.horizontal, 20)
                                     //.frame(width: 800, height: 200)
                                 //CarroyageHorizontal1(patient: patient, limB: Int(courbes.mini.rounded(.down)), limH: Int(courbes.maxi.rounded(.up)), multi: Int(30))
