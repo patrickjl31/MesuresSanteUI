@@ -28,8 +28,20 @@ struct AccueilPatients: View {
     var body: some View {
            
         VStack {
-            
-            DateDuJourView(date: date)
+            HStack {
+                Image("logo-sante-2")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 80, height: 80)
+                VStack {
+                    DateDuJourView(date: date)
+                    Text("Votre santé au jour le jour...")
+                        .modifier(ItaliqueBleuModifier())
+                        
+                        
+                }
+            }
+            //DateDuJourView(date: date)
                 .padding(20)
             //Spacer()
             // est-ce qu'ilexiste des utilisateurs ?

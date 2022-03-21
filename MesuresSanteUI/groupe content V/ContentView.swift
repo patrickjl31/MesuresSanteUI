@@ -52,7 +52,7 @@ struct ContentView: View {
                 //---- les icones du bas
                 if users.existCurrentUser() {
                     let patient = users.listeUsers[users.userCourant]
-                    RapportDuJourView(user: users, patient: patient).tabItem
+                    RapportDuJourView(user: users).tabItem
                     {
                         //Image(systemName: "rectangle.and.pencil.and.ellipsis")
                         Image(systemName: "rectangle.and.pencil.and.ellipsis")

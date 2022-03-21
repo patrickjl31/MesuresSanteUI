@@ -272,7 +272,8 @@ class Users : Codable, ObservableObject {
     func addMesureTension(tension : Mesure){
         if userCourant > -1 {
             let patient = listeUsers[userCourant]
-            patient.tension.maTension.append(tension)
+            //patient.tension.maTension.append(tension)
+            patient.addTension(mesure: tension)
             //on trie
             patient.triMesures()
             //patient.saveTension()
@@ -293,7 +294,8 @@ class Users : Codable, ObservableObject {
     func addMesureSucre(sucre : MesureSucre){
         if userCourant > -1 {
             let patient = listeUsers[userCourant]
-            patient.diabete.sucre.append(sucre)
+            //patient.diabete.sucre.append(sucre)
+            patient.addDiabete(mesure: sucre)
             //on trie
             patient.triMesures()
             //patient.saveSucre()
@@ -314,7 +316,8 @@ class Users : Codable, ObservableObject {
     func addMesureRapport(rapport : RapportQuotidien){
         if userCourant > -1 {
             let patient = listeUsers[userCourant]
-            patient.rapportsQuotidien.append(rapport)
+            //patient.rapportsQuotidien.append(rapport)
+            patient.addRapport(rapport: rapport)
             //on trie
             patient.triMesures()
             //patient.saveRapports()

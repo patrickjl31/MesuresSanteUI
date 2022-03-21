@@ -89,8 +89,8 @@ struct TraceCourbe1: View {
 
 struct TraceCourbe1_Previews: PreviewProvider {
     static var previews: some View {
-        TraceCourbe1(listeDates: [Date(),Date(),Date(),Date()], listePointsX: [10.800000000000001,10.5,7.5,9.8000000000000007], yMax: 18, yMin: 3, couleur: .red)
-        //TraceCourbe1(listeDates:[Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date()],listePointsX: [0.3, 14.0,12.0,8.0,16.0,7.6,12.5,14.0,12.0,8.0,16.0,7.6,12.5,14.0,12.0,8.0,16.0, 0.9,7.6,12.5, 12], yMax: 17 , yMin: 0.1 ,couleur: .red,multi: 30)
+        //TraceCourbe1(listeDates: [Date(),Date(),Date(),Date()], listePointsX: [10.800000000000001,10.5,7.5,9.8000000000000007], yMax: 18, yMin: 3, couleur: .red)
+        TraceCourbe1(listeDates:[Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date(),Date()],listePointsX: [0.3, 14.0,12.0,8.0,16.0,7.6,12.5,14.0,12.0,8.0,16.0,7.6,12.5,14.0,12.0,8.0,16.0, 0.9,7.6,12.5, 12], yMax: 17 , yMin: 0.1 ,couleur: .red)
         
         //TraceCourbe(listeDates:[Date(),Date(),Date(),Date()],listePointsX: [10.800000000000001,10.5,7.5,9.8000000000000007] ,yMax: 10.8 , yMin: 5.0, couleur: .red,multi: 30)
     }

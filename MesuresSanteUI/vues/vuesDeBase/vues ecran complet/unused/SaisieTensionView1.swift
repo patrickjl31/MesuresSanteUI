@@ -141,7 +141,7 @@ struct SaisieTensionView1: View {
                                 .fontWeight(.bold)
                             Divider()
                              
-                            SaisieDate(releveDu: $releveDu)
+                            SaisieDate(releveDu: $releveDu, autreJour: $autreJour)
                             
                         })
                         .multilineTextAlignment(.center)
@@ -211,9 +211,10 @@ struct SaisieTensionView1: View {
                            
                         }
                         .font(.system(size: 16, weight: .bold, design: .rounded))
-                        
-                        if allSliderSelecteds() {
+                        //allSliderSelecteds()
+                        if isModified {
                             Button(action: {
+                                isModified = false
                                 combienMesures += 1
                                 memsystolique = calculeMoyenne(cumul: memsystolique, nouveau: systolique, mesures: combienMesures)
                                 systolique = defautSystolique//0
@@ -311,7 +312,9 @@ struct SaisieTensionView1: View {
     // MARK: - Fonctions
     
     func enregistrer(){
-        
+        if !autreJour {
+            releveDu = Date()
+        }
         let newTension : Mesure = Mesure( systolique: memsystolique, distolique: memdiastolique, pulsation: memcoeur, dateMesure: releveDu, moment: momment)
         user.addMesureTension(tension: newTension)
         //test(texte: "systolique : \(memsystolique)")

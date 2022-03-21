@@ -17,7 +17,7 @@ struct RapportDuJourView: View {
     
     
     @ObservedObject var user : Users
-    @ObservedObject var patient : Personne
+    //@ObservedObject var patient : Personne
     
     //@ObservedObject var datas : Mesures
     
@@ -68,7 +68,13 @@ struct RapportDuJourView: View {
         //patient?.addRapport(rapport: fiche)
     }
     
-   
+    func nomPatient()->String{
+        var nom = ""
+        if user.existCurrentUser(){
+            nom = user.listeUsers[user.userCourant].nom + " " + user.listeUsers[user.userCourant].prenom
+        }
+        return nom
+    }
     
     
     // MARK: - Corps
@@ -85,34 +91,29 @@ struct RapportDuJourView: View {
 
     var body: some View {
         
-
-        
         NavigationView {
             ScrollView {
                 
                 VStack{
                   
-                    DateDuJourView(date: date)
+                    HStack {
+                        Image("logo-sante-2")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                        DateDuJourView(date: date)
+                    }
+                    
                     
                     HStack {
-                        var nom = patient.prenom + " " + patient.nom
+                        //var nom = patient.prenom + " " + patient.nom
+                        
                         //Text("Bonjour")
-                        /*
-                        Button {
-                            patient.effaceIdentite()
-                            nom = ""
-                            } label: {
-                            VStack( spacing: 0){
-                                Image(systemName: "highlighter")
-                                Text("Edit")
-                                    .font(.system(size: 12, weight: .light))
-                                }
-                            }
-                        */
+                     
                         //Spacer()
                         
-                        if patient.nom.count > 0{
-                            Text("Bonjour \(patient.prenom) \(patient.nom)")
+                        if nomPatient().count > 0{
+                            Text("Bonjour \(nomPatient()) ")
                                 .font(.system(size: 18, weight: .heavy, design: .rounded))
                                 .foregroundColor(Color("BleuSombre"))
                                 //.shadow(color: .black, radius: 4, x: 4, y: 4)
@@ -121,8 +122,6 @@ struct RapportDuJourView: View {
                             //    .padding(.vertical, 5)
                         }
                         
-                        
-
                     }
                     .padding()
                     
@@ -131,7 +130,10 @@ struct RapportDuJourView: View {
                         
                         
                         NavigationLink(destination: {
-                            ListeRapportsView(patient: patient, datas: patient.tension)
+                            if user.existCurrentUser(){
+                                ListeRapportsView(patient: user.listeUsers[user.userCourant], datas: user.listeUsers[user.userCourant].tension)
+                            }
+                            
                         }, label: {
                             VStack {
                                 Image(systemName: "square.and.arrow.up")
@@ -143,7 +145,10 @@ struct RapportDuJourView: View {
                         
                         NavigationLink(destination: {
                             //DetailRapportView(patient: patient, rapport: patient.rapportsQuotidien)
-                            TousLesRapports(patient: patient)
+                            if user.existCurrentUser(){
+                                TousLesRapports(patient: user.listeUsers[user.userCourant])
+                            }
+                            
                         }, label: {
                             VStack {
                                 Image(systemName: "list.bullet.rectangle")
@@ -153,7 +158,11 @@ struct RapportDuJourView: View {
                         Spacer()
                         
                         NavigationLink(destination: {
-                            ListeRapportsView(patient: patient, datas: patient.tension)
+                            if user.existCurrentUser(){
+                                TousLesRapports(patient: user.listeUsers[user.userCourant])
+                                //ListeRapportsView(patient: patient, datas: patient.tension)
+                            }
+                            
                         }, label: {
                             VStack {
                                 Image(systemName: "list.bullet.rectangle")
@@ -167,10 +176,7 @@ struct RapportDuJourView: View {
                         .font(.system(size: 20, weight: .heavy, design: .rounded))
                         .foregroundColor(Color("BleuSombre"))
                         .shadow(color: Color("BlackLigth"), radius: 8, x: 4, y: 4)
-                    .padding()
-                    
-                    
-                    
+                        .padding()
                     
                     Group {
                         
@@ -202,18 +208,7 @@ struct RapportDuJourView: View {
                     }
                     Divider()
                     // La liste des mesures
-                    /*Text("rapports :")
-                    NavigationLink(destination: {
-                        ListeRapportsView()
-                    }, label: {
-                        Text("Liste des rapports")
-                    })
-                    
-                    List (patient.rapportsQuotidien){
-                        rapport in
-                            ElemListePatient(rapport: rapport, ligne: "aze")
-                        }
-                    */
+                  
                 }
                 
                 Spacer()
@@ -234,7 +229,8 @@ struct RapportDuJourView: View {
 /* */
 struct RapportDuJourView_Previews: PreviewProvider {
     static var previews: some View {
-        RapportDuJourView(user: Users(), patient: Personne())
+        RapportDuJourView(user: Users())
+        //RapportDuJourView(user: Users(), patient: Personne())
         //RapportDuJourView()
     }
 }

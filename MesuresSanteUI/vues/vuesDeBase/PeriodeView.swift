@@ -35,14 +35,14 @@ struct PeriodeView: View {
                 rep = "Mesures du \(date1)\n au \n\(date2)"
                 return rep
             } else {
-                if lesMesures.count == 1 {
+                if lesMesures.count == 2 {
                     // une mesure
                     let date1 = laDate(date:  lesMesures[0].dateMesure)
                     let date2 = laDate(date: lesMesures[1].dateMesure)
                     rep = "Deux  mesures : \(date1) et \(date2)"
                 } else {
                     // Rien
-                    return  "Pas encore de mesures..."
+                    return  "Pas encore assez de mesures..."
                 }
             }
         } else {
@@ -54,14 +54,14 @@ struct PeriodeView: View {
                 rep = "Mesures du \(date1)\n au \n\(date2)"
                 return rep
             } else {
-                if lesMesures.count == 1 {
+                if lesMesures.count == 2 {
                     // une mesure
                     let date1 = laDate(date:  lesMesures[0].dateMesure)
                     let date2 = laDate(date: lesMesures[1].dateMesure)
                     rep = "Deux  mesures : \(date1) et \(date2)"
                 } else {
                     // Rien
-                    return  "Pas encore de mesures..."
+                    return  "Pas encore assez de mesures..."
                 }
             }
             
@@ -71,11 +71,15 @@ struct PeriodeView: View {
     // MARK: - Corps
     var body: some View {
         Text(bornesEnString())
+            .modifier(PetitBleuModifier())
+            .multilineTextAlignment(.center)
+            .lineLimit(3)
+        /*
             .font(.system(size: 18, weight: .heavy, design: .rounded))
             .foregroundColor(Color("BleuSombre"))
             .multilineTextAlignment(.center)
             .lineLimit(3)
-        
+        */
     }
 }
 

@@ -110,6 +110,33 @@ class MesuresSucre: ObservableObject, Codable, Identifiable {
         }
     }
     
+    func courbeFine(moment: [Moment]) -> (valSucre : [Double], dates: [Date], maxi : Double, mini:Double) {
+        
+        var duSucre : [Double] = []
+        var date : [Date] = []
+
+        if noMesures(){
+            return (duSucre,date,0,0)
+        }
+        
+        for elem in 0..<sucre.count {
+            let momentCetElem = Moment(rawValue: sucre[elem].moment)
+            if momentCetElem != nil {
+                let aNoter = moment.contains(momentCetElem!)
+                if aNoter {
+                    duSucre.append(sucre[elem].taux)
+                    date.append(sucre[elem].dateMesure)
+                }
+            }
+        }
+
+        if let maxi = duSucre.max(), let mini = duSucre.min() {
+            return (duSucre, date,maxi, mini)
+        } else {
+            return (duSucre, date,7, 0)
+        }
+    }
+    
     // Json : -encode maTension
     func toJson() -> String? {
         let encoder = JSONEncoder()

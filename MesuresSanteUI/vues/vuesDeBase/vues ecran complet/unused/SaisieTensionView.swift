@@ -140,7 +140,7 @@ struct SaisieTensionView: View {
                                 .fontWeight(.bold)
                             Divider()
                              
-                            SaisieDate(releveDu: $releveDu)
+                            SaisieDate(releveDu: $releveDu, autreJour: $autreJour)
                            
                             
                         })

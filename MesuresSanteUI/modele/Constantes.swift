@@ -43,7 +43,18 @@ let SYMBOLE_TROUSSE_MEDICALE = "cross.case"
 let SYMBOLE_OEIL = "eye"
 
 // Sucre
-let ListeMomentsSucre = ["Réveil", "Apres petit déjeuner", "Avanr déjeuner", "Après déjeuner", "Avant diner", "Couché"]
+let SListeMomentsSucre = ["Réveil", "Après petit déjeuner", "Avanr déjeuner", "Après déjeuner", "Avant diner", "Couché"]
+let SListeMomentsPreSucre = ["Réveil",  "Avanr déjeuner", "Avant diner"]
+let SListeMomentsPostSucre = ["Après petit déjeuner", "Après déjeuner", "Couché"]
+
+let ListeMomentsSucre:[Moment] = [.reveil, .apresPetitDej, .avantDej, .apresDej, .avantDine, .couche]
+let ListeMomentsPreSucre:[Moment]  = [.reveil, .avantDej, .avantDine]
+let ListeMomentsPostSucre:[Moment]  = [.apresPetitDej, .apresDej, .couche]
+
+//limites du nombre de mesures
+let NOMBRE_MAX_MESURES_SUCRE = 6 * 100
+let NOMBRE_MAX_MESURES_TENSION = 2 * 100
+let NOMBRE_MAX_MESURES_QUOTIDIEN = 2 * 100
 
 // Textes de Help
 

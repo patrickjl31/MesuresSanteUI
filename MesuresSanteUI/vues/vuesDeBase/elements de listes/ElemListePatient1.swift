@@ -49,7 +49,7 @@ struct ElemListePatient1: View {
             Spacer()
             
             NavigationLink(destination: {
-                RapportDuJourView(user: users, patient: patient)
+                RapportDuJourView(user: users)
             }, label: {
                 VStack {
                     Image(systemName: "eye")

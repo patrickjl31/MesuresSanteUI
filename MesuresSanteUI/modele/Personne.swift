@@ -148,28 +148,37 @@ class Personne : ObservableObject ,Codable, Identifiable, Hashable {
         return prenom + "_" + nom
     }
     
+    // MARK: - gérer les mesures
     func removeRapport(at indexSet: IndexSet){
         rapportsQuotidien.remove(atOffsets: indexSet)
         //savePersonne()
     }
     
     func addRapport(rapport:RapportQuotidien){
+        let tailleMesures = rapportsQuotidien.count
+        if tailleMesures > NOMBRE_MAX_MESURES_SUCRE {
+            rapportsQuotidien.removeFirst()
+        }
         rapportsQuotidien.append(rapport)
         //savePersonne()
     }
     
     func addDiabete(mesure:MesureSucre){
+        let tailleMesures = diabete.sucre.count
+        if tailleMesures > NOMBRE_MAX_MESURES_SUCRE {
+            diabete.sucre.removeFirst()
+        }
         diabete.sucre.append(mesure)
     }
     func addTension(mesure:Mesure){
+        let tailleMesures = tension.maTension.count
+        if tailleMesures > NOMBRE_MAX_MESURES_TENSION {
+            tension.maTension.removeFirst()
+        }
         tension.maTension.append(mesure)
     }
     
-    func enregistrerGlycemie(sucre : Glycemie){
-        //glycemie.append(sucre)
-        // On enregistre
-        //saveGlycemie2File()
-    }
+
     //-------------------------------------------
     //-------Gestion des fichiers ----------------
     
