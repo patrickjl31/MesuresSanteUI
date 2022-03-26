@@ -26,7 +26,7 @@ struct CarroyageHorizontal: View {
     
     // MARK: - Fonctions
     func precision(ecart : CGFloat)->String {
-        var rep = ""
+        
         if ecart < 1.4 {
             return "%.2f"
         }

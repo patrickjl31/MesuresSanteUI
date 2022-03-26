@@ -27,7 +27,7 @@ struct DemandeDouble: View {
                 Text("\(mini, specifier: codeDigits)")
                     .foregroundColor(couleur)
                 Slider(value: $valeur, in: mini...maxi, step: pas, onEditingChanged: { editing in
-                    isChanged = editing
+                    isChanged = editing || isChanged
                 })
                     //.thumbTintColor = couleur
                     .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
@@ -39,6 +39,7 @@ struct DemandeDouble: View {
             }
             
         }
+        .font(.system(size: (idiom == .pad ? 24 : 14), weight: .bold, design: .rounded))
         
     }
     

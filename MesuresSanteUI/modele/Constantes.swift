@@ -51,6 +51,7 @@ let ListeMomentsSucre:[Moment] = [.reveil, .apresPetitDej, .avantDej, .apresDej,
 let ListeMomentsPreSucre:[Moment]  = [.reveil, .avantDej, .avantDine]
 let ListeMomentsPostSucre:[Moment]  = [.apresPetitDej, .apresDej, .couche]
 
+let ListeNiveauxGlycemie = ["Hypoglycémie (< 0.7)", "Normal (0.7...1,4)", "Hyperglycémie modérée (1,4...1,7)", "Diabete ( > 1.7)"]
 //limites du nombre de mesures
 let NOMBRE_MAX_MESURES_SUCRE = 6 * 100
 let NOMBRE_MAX_MESURES_TENSION = 2 * 100
@@ -125,6 +126,30 @@ let HELP4 = """
 Toutes les mesures sont enregistrées en permanence au format JSON. Vous pouvez ainsi les récupérer dans un tableur ou les communiquer à vote médecin.
 
 """
+
+
+// MARK: - constantes machine
+let screenHeight = UIScreen.main.bounds.size.height
+var idiom : UIUserInterfaceIdiom { UIDevice.current.userInterfaceIdiom }
+
+// MARK: - monétisation - admob
+//Constantes AdMob
+//!!! A utiliser uniquement en production
+
+let ADMOB_APP_ID = ""
+let BANNER_ID = ""
+let INTERSTITIAL_ID = ""
+let VIDEO_ID = ""
+
+// Constantes AdMob TEST
+let TEST_BANNER = ""
+let TEST_INTERSTITIAL = ""
+let TEST_VIDEO = ""
+
+//Test Devices
+let TEST_DEVICES = [
+    ""
+]
 
 
 

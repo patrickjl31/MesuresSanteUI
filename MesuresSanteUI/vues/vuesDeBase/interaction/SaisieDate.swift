@@ -32,11 +32,11 @@ struct SaisieDate: View {
                         if autreJour {
                             DatePicker(selection: $releveDu,
                                 label: { Text("Relevés du :") })
-                            print("datepicker")
+                            //print("datepicker")
                         }
                     } else {
                         releveDu = Date()
-                        print("retour aujourdhui")
+                        //print("retour aujourdhui")
                         //Text("Mesures réalisées le \(releveDu.identDateAndMoment().date) (\(releveDu.identDateAndMoment().moment))")
                     }
                 }
@@ -47,6 +47,7 @@ struct SaisieDate: View {
             }
             
         }
+        .modifier(PetitBleuModifier())
         //.font(.system(size: 18, weight: .bold, design: .rounded))
         .padding(.horizontal, 10)
     }

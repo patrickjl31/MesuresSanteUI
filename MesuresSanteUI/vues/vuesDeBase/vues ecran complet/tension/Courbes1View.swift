@@ -18,7 +18,8 @@ struct Courbes1View: View {
             
             VStack{  
                 TitulatureView(titreSpecifique: "Vos mesures en courbes...")
-                PeriodeView(patient: patient)
+                //EnTeteSucre()
+                PeriodeView(patient: patient, typeMesure: TENSIONS)
                     //.offset(x: 0, y: -30)
                 
                 // Tracé des courbes

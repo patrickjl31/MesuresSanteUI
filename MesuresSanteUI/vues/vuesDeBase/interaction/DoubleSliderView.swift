@@ -31,7 +31,7 @@ struct DoubleSliderView: View {
     // MARK: - Fonctions
     func evalPas(precision : Int)->Double{
         var res:Double = 1
-        for i in 1...precision {
+        for _ in 1...precision {
             res = res / 10
         }
         return res
@@ -96,7 +96,7 @@ struct DoubleSliderView: View {
             Text("Valeur en G/L : \(val1, specifier: codeDigits)")
             
         }
-        .font(.system(size: 14, weight: .bold, design: .rounded))
+        .font(.system(size: (idiom == .pad ? 24 : 14), weight: .bold, design: .rounded))
 
     }
 }

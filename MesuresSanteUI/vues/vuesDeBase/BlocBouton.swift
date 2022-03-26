@@ -18,15 +18,17 @@ struct BlocBouton: View {
         HStack(alignment:.center) {
             //Spacer()
             Text(self.texte)
-                .font(.system(size: 16, weight:
-                    .black, design: .default))
-                .foregroundColor(Color.white)
                 .multilineTextAlignment(.center)
-                .frame(width: 200, height: 20, alignment: .center)
-                .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
-                .background(Color("BleuSombre"))
-                .cornerRadius(20)
-                .shadow(color: .black, radius: 4, x: 4, y: 4)
+                .modifier(BlocButtonModifier())
+                //.font(.system(size: 16, weight:
+                //    .black, design: .default))
+                //.foregroundColor(Color.white)
+                
+                //.frame(width: 200, height: (idiom == .pad ? 30 : 20), alignment: .center)
+                //.padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
+                //.background(Color("BleuSombre"))
+                //.cornerRadius(20)
+                //.shadow(color: .black, radius: 4, x: 4, y: 4)
             /*
                 .overlay(Capsule()
                             //.fill(.clear)

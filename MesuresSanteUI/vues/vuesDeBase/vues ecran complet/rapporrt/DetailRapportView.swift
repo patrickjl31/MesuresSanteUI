@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailRapportView: View {
     
     @ObservedObject var patient : Personne
-    
+    var rapport : RapportQuotidien
     
     // MARK: - Fonctions
     func laDate(date:Date)->String{
@@ -22,43 +22,47 @@ struct DetailRapportView: View {
     }
     
     
-    var rapport : RapportQuotidien
+   
     
     var body: some View {
         
         //ScrollView(.horizontal) {
             VStack(alignment: .center, spacing: 10){
-                Text("Rapport du : \(laDate(date: date))")
-                    .font(.system(size: 24, weight: .heavy, design: .rounded))
-                        .foregroundColor(Color("BleuSombre"))
+                Text("Rapport du : \(laDate(date: rapport.date))")
+                    .font(.system(size: idiom == .pad ? 30 : 20, weight: .heavy, design: .rounded))
+                    .foregroundColor(Color("BleuSombre"))
                         .shadow(color: Color("BlackLigth"), radius: 4, x: 4, y: 4)
                         .padding(.vertical, 20)
                 Divider()
-                HStack {
-                    Text("Température : ")
-                    Spacer()
-                    Text("\(rapport.temperature,  specifier: "%.1f") °")
-                }
-                HStack {
-                    Text("Diurèse : ")
-                    Spacer()
-                    Text("\(rapport.diurese,  specifier: "%.1f") litres.")
-                }
-                HStack {
-                    Text("Selles : ")
-                    Spacer()
-                    //Text("\(rapport.selles,  specifier: "%f0.0") ")
-                    Text("\(rapport.selles)")
-                }
-                HStack {
-                    Text("Douleur : ")
-                    Text(" (échelle de 0 à 10)).")
-                        .foregroundColor(.gray)
-                        .italic()
-                    Spacer()
-                    Text("\(rapport.douleur,  specifier: "%.0f")")
+                Group {
+                    HStack {
+                        Text("Température : ")
+                        Spacer()
+                        Text("\(rapport.temperature,  specifier: "%.1f")°")
+                    }
+                    HStack {
+                        Text("Diurèse : ")
+                        Spacer()
+                        Text("\(rapport.diurese,  specifier: "%.1f") litres.")
+                    }
+                    HStack {
+                        Text("Selles : ")
+                        Spacer()
+                        //Text("\(rapport.selles,  specifier: "%f0.0") ")
+                        Text("\(rapport.selles)")
+                    }
+                    HStack {
+                        Text("Douleur : ")
+                        Text(" (échelle de 0 à 10)).")
+                            .foregroundColor(.gray)
+                            .italic()
+                        Spacer()
+                        Text("\(rapport.douleur,  specifier: "%.0f")")
+                        
+                    }
                     
                 }
+                .modifier(PetitBleuModifier())
                 Group {
                     HStack(alignment: .top) {
                         Text("Etat cutané : ")
@@ -79,6 +83,7 @@ struct DetailRapportView: View {
                     
                     
                 }
+                .modifier(PetitBleuModifier())
                 .lineLimit(10)
                 
             }

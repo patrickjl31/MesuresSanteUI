@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LegendeSucre: View {
+    
+    private var idiom : UIUserInterfaceIdiom { UIDevice.current.userInterfaceIdiom }
+    
     var body: some View {
         HStack(alignment: .center, spacing: 10) {
                     Text("Légende : ")
@@ -20,7 +23,8 @@ struct LegendeSucre: View {
                         //.foregroundColor(COUL_DIASTO)
                     //Spacer()
                 } // HStack
-                .font(.title3)
+                .font(.system(size: (idiom == .pad ? 20 : 12), weight: .bold, design: .rounded))
+                //.font(.title3)
     }
 }
 

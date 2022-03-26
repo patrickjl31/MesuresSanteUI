@@ -56,13 +56,12 @@ struct AccueilPatients: View {
                 //let patient : Personne = users.listeUsers[courant]
                 //let nom = users.listeUsers[courant].nom
                 //let prenom = users.listeUsers[courant].prenom
-                let nom = users.nomCurrentUser
-                let prenom = users.prenomCurrentUser
+                //let nom = users.nomCurrentUser
+                //let prenom = users.prenomCurrentUser
                 DemandeNomModifiable(users: users, action: .Modifier, nom: users.nomCurrentUser, prenom: users.prenomCurrentUser)
-                //DemandeNomSimple(patients: <#T##Identites#>, nom: <#T##String#>, prenom: <#T##String#>)
+                
             } else {
-                //DemandeNom(users: users, action: .creer, nom: "", prenom: "")
-                //DemandeNomBis(users: users, action: .creer, nom: "", prenom: "")
+                
                 DemandeNomModifiable(users: users, action: .creer, nom: "", prenom: "")
             }
             

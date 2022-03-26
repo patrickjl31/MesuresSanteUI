@@ -25,6 +25,7 @@ struct TextBlocWithTitle: View {
                 .fontWeight(.semibold)
                 .padding()
             Text(texte2)
+                .font(.system(size: idiom == .pad ? 22 : 14, weight: .medium, design: .rounded))
                 .padding()
         }
         //.background(Color("grisClair"))

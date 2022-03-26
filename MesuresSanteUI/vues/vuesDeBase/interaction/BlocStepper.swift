@@ -17,7 +17,7 @@ struct BlocStepper: View {
     
     var body: some View {
         Stepper("\(texte) : \(valeur)", value: $valeur, in: 0...maxi)
-            .font(.system(size: 18, weight: .bold, design: .rounded))
+            .font(.system(size: (idiom == .pad ? 24 : 14), weight: .bold, design: .rounded))
             .foregroundColor(couleur)
             .padding(.horizontal, 10)
             //.padding(.vertical,10)

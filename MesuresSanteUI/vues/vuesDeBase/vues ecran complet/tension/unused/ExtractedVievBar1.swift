@@ -51,7 +51,7 @@ struct ExtractedVievBar1: View {
                                 .frame(width: epaisseur * 2, height: 50
                                        , alignment: .leading)
                             //.offset(x: 0.0, y: 10)
-                            
+                                .padding(.vertical, 8)
                         }
                         
                         // Le texte

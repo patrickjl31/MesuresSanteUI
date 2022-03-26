@@ -102,7 +102,7 @@ struct DemandeNomSimple: View {
             //Text("Nombre de noms : \(users.listeUsers[users.userCourant].count)")
             /* */
             if users.userCourant > -1 {
-                let patient:[Personne] = users.listeUsers
+                
                 List{
                     ForEach((0..<users.listeUsers.count), id:  \.self){
                         index in

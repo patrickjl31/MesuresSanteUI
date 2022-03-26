@@ -11,16 +11,17 @@ struct BlocTextfield: View {
     
     @Binding var reponse : String
     var message : String = ""
+    var placeHolder :String = ""
     var couleur:Color = .black
     
     var body: some View {
         HStack {
             Text(message)
-            TextField(message,
+            TextField(placeHolder,
                       text: $reponse)
                
         }
-        .font(.system(size: 18, weight: .bold, design: .rounded))
+        .font(.system(size: (idiom == .pad ? 24 : 14), weight: .bold, design: .rounded))
         .foregroundColor(couleur)
         .padding(.horizontal, 10)
         

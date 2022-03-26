@@ -71,7 +71,7 @@ struct RapportDuJourView: View {
     func nomPatient()->String{
         var nom = ""
         if user.existCurrentUser(){
-            nom = user.listeUsers[user.userCourant].nom + " " + user.listeUsers[user.userCourant].prenom
+            nom = user.listeUsers[user.userCourant].prenom + " " + user.listeUsers[user.userCourant].nom
         }
         return nom
     }
@@ -114,8 +114,9 @@ struct RapportDuJourView: View {
                         
                         if nomPatient().count > 0{
                             Text("Bonjour \(nomPatient()) ")
-                                .font(.system(size: 18, weight: .heavy, design: .rounded))
-                                .foregroundColor(Color("BleuSombre"))
+                                .modifier(TitreBleuModifier())
+                                //.font(.system(size: 18, weight: .heavy, design: .rounded))
+                                //.foregroundColor(Color("BleuSombre"))
                                 //.shadow(color: .black, radius: 4, x: 4, y: 4)
                         } else {
                            // DemandeNom(patient: patient)
@@ -123,15 +124,16 @@ struct RapportDuJourView: View {
                         }
                         
                     }
-                    .padding()
+                    //.padding()
                     
                     Divider()
+                    /*
                     HStack(alignment: .center) {
                         
                         
                         NavigationLink(destination: {
                             if user.existCurrentUser(){
-                                ListeRapportsView(patient: user.listeUsers[user.userCourant], datas: user.listeUsers[user.userCourant].tension)
+                                ListeRapportsView(patient: user.listeUsers[user.userCourant])
                             }
                             
                         }, label: {
@@ -146,13 +148,13 @@ struct RapportDuJourView: View {
                         NavigationLink(destination: {
                             //DetailRapportView(patient: patient, rapport: patient.rapportsQuotidien)
                             if user.existCurrentUser(){
-                                TousLesRapports(patient: user.listeUsers[user.userCourant])
+                                ListeRapportsView(patient: user.listeUsers[user.userCourant])
                             }
                             
                         }, label: {
                             VStack {
                                 Image(systemName: "list.bullet.rectangle")
-                                Text("Les rapports")
+                                Text("Liste rapports")
                             }
                         })
                         Spacer()
@@ -171,11 +173,13 @@ struct RapportDuJourView: View {
                         })
                     }
                     .padding(.horizontal, 10)
+                    */
+                    
                     
                     Text("Vos relevés du jour...")
-                        .font(.system(size: 20, weight: .heavy, design: .rounded))
-                        .foregroundColor(Color("BleuSombre"))
-                        .shadow(color: Color("BlackLigth"), radius: 8, x: 4, y: 4)
+                        //.modifier(PetitBleuModifier())
+                        .modifier(TitreBleuModifier())
+                        
                         .padding()
                     
                     Group {
@@ -185,16 +189,18 @@ struct RapportDuJourView: View {
                         BlocSlider(texte: "Diurese ( l / 24h)", valeur: $diurese, mini: 0.0, maxi: 2.0, pas: 0.1, couleur: Color("JauneSombre"))
                         
                         BlocStepper(texte: "Selles : ", maxi: 15, valeur: $selles, couleur: .brown)
-                        BlocTextfield(reponse: $etatCutane, message: "Etat cutané : ", couleur: Color("BleuSombre"))
-                        BlocTextfield(reponse: $moral, message: "Etat moral : ", couleur: Color("BleuSombre"))
+                        BlocTextfield(reponse: $etatCutane, message: "Etat cutané : ", placeHolder: "Etat cutané", couleur: Color("BleuSombre"))
+                        BlocTextfield(reponse: $moral, message: "Etat moral : ", placeHolder: "Etat moral ", couleur: Color("BleuSombre"))
+                        
                         //BlocTextfield(reponse: $remarques, message: "Remarques : ", couleur: Color("BleuSombre"))
                         Text("Remarques")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .foregroundColor(Color("BleuSombre"))
+                            .modifier(PetitBleuModifier())
+                            //.font(.system(size: 18, weight: .bold, design: .rounded))
+                            //.foregroundColor(Color("BleuSombre"))
                         TextEditorView(remarques: $remarques)
                             .frame(width: 350, height: 70)
                     }//group relevés du jour
-                    
+                    //.font(.system(size: 14, weight: .bold, design: .rounded))
                     Divider()
                     Button {
                         enregistrer()
@@ -208,15 +214,54 @@ struct RapportDuJourView: View {
                     }
                     Divider()
                     // La liste des mesures
-                  
                 }
                 
                 Spacer()
+                
+                //------------------
+                // lzs boutons de la toolbar
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        NavigationLink(destination: {
+                            if user.existCurrentUser(){
+                                ListeRapportsView(patient: user.listeUsers[user.userCourant])
+                            }
+                            
+                        }, label: {
+                            VStack {
+                                Image(systemName: "list.dash")
+                                Text("Liste Rapports")
+                            }
+                            .font(.system(size: (idiom == .pad) ? 24 : 18, weight: .light, design: .rounded))
+                        })
+                    }
+                    
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink(destination: {
+                            if user.existCurrentUser(){
+                                TousLesRapports(patient: user.listeUsers[user.userCourant])
+                                //ListeRapportsView(patient: patient, datas: patient.tension)
+                            }
+                            
+                        }, label: {
+                            VStack {
+                                Image(systemName: "list.bullet.rectangle")
+                                Text("Voir les rapports")
+                            }
+                            .font(.system(size: (idiom == .pad) ? 24 : 18, weight: .light, design: .rounded))
+                        })
+                    }
+                    
+                    
+                }
+                
+                
             }//ScrollView
             //.navigationTitle(Text("Rapport quotidien"))
             //.navigationBarTitleDisplayMode(.inline)
             
-            //Spacer()
+            Spacer()
         }//VStack
         .navigationViewStyle(StackNavigationViewStyle())
         //.ignoresSafeArea()

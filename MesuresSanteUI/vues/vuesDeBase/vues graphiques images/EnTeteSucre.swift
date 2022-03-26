@@ -19,7 +19,7 @@ struct EnTeteSucre: View {
                 .frame(width: 350, height: 70, alignment: .center)
                 .opacity(0.6)
             Text("Surveillez votre taux de sucre...")
-                .font(.system(size: 18, weight: .heavy, design: .rounded))
+                .modifier(TitreBleuModifier())
             .foregroundColor(Color("BleuSombre"))
         }
         

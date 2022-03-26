@@ -32,14 +32,15 @@ struct PeriodeView: View {
                 // au moins 2 mesures
                 let date1 = laDate(date:  lesMesures[0].dateMesure)
                 let date2 = laDate(date: lesMesures[lesMesures.count - 1].dateMesure)
-                rep = "Mesures du \(date1)\n au \n\(date2)"
+                //let date2 = laDate(date: lesMesures.last?.dateMesure ?? Date())
+                rep = "Mesures du \(date1) au \(date2)"
                 return rep
             } else {
                 if lesMesures.count == 2 {
                     // une mesure
                     let date1 = laDate(date:  lesMesures[0].dateMesure)
                     let date2 = laDate(date: lesMesures[1].dateMesure)
-                    rep = "Deux  mesures : \(date1) et \(date2)"
+                    rep = "Mesures du \(date1)\n au \n\(date2)"
                 } else {
                     // Rien
                     return  "Pas encore assez de mesures..."
@@ -73,7 +74,7 @@ struct PeriodeView: View {
         Text(bornesEnString())
             .modifier(PetitBleuModifier())
             .multilineTextAlignment(.center)
-            .lineLimit(3)
+            .lineLimit(4)
         /*
             .font(.system(size: 18, weight: .heavy, design: .rounded))
             .foregroundColor(Color("BleuSombre"))
@@ -86,6 +87,6 @@ struct PeriodeView: View {
 struct PeriodeView_Previews: PreviewProvider {
     static var previews: some View {
         //PeriodeView(patient: Personne(), datas: testMesures)
-        PeriodeView(patient: Personne(),typeMesure:  TENSIONS)
+        PeriodeView(patient: Personne(),typeMesure:  SUCRE)
     }
 }

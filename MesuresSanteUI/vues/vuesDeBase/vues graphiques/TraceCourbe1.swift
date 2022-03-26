@@ -28,7 +28,7 @@ struct TraceCourbe1: View {
     
     func setMulti()-> Double{
         let maxi = Double( listePointsX.max() ?? 0)
-        let mini = Double( listePointsX.min() ?? 0)
+        //let mini = Double( listePointsX.min() ?? 0)
         //multi = hauteurCourbe / maxi
         return hauteurCourbe / maxi
     }
@@ -45,44 +45,41 @@ struct TraceCourbe1: View {
         
         GeometryReader {geometry in
             //let maxi =
+            let nombreDePoints = listePointsX.count
             let yUnite = hauteurCourbe / (yMax - yMin)
-            
             let ecartement = Double(geometry.size.width) / Double(listePointsX.count)
             let demiEcart = ecartement / 2
-            
             let debut = geometry.size.height - basDeCourbe
 
-           
             Path(){path in
                 path.move(to: CGPoint(x: demiEcart, y: Double(debut) - ((listePointsX[0] - yMin) * yUnite)))
-                for index in 1..<listePointsX.count{
+                //listePointsX.count
+                for index in 1..<nombreDePoints{
                     path.addLine(to: CGPoint(x: demiEcart + (ecartement * Double(index))  , y: Double(debut) - ((listePointsX[index] - yMin) * yUnite)))
-                    
                 }
             }
-             
             .stroke(couleur, lineWidth: 4)
            
-          
-
             // Les points
-            /*
-            CercleVue(centre: CGPoint(x: demiEcart, y: listePointsX[0]  * multi), diametre: 10, colorInt: Color.white, colorExt: Color.red)
- */
 
-            ForEach(0..<listePointsX.count){index in
-                //let texte :String = String(listePointsX[index])
-                // on indique la date
-                let d = dateCourte(d: listeDates[index])
-                let v = " -> \(String(format: "%.2f", listePointsX[index]))"
-                let texte = listeDates.count == listePointsX.count ?"Relevé du \(d): \(v)" : ""
-                //CoeurVue(centre: CGPoint(x: demiEcart + (ecartement * Double(index))  , y  : Double(debut) - ((listePointsX[index] - yMin) * yUnite)), diametre: 20, colorInt: Color.white, colorExt: couleur, legende: texte)
-                PointSurCourbeVue(symbole: symbole, centre: CGPoint(x: demiEcart + (ecartement * Double(index))  , y  : Double(debut) - ((listePointsX[index] - yMin) * yUnite)), diametre: 20, colorInt: Color.white, colorExt: couleur, legende: texte)
-            }
+                
+                if nombreDePoints > 0 {
+                    ForEach((0..<nombreDePoints),id: \.self){index in
+                    //let texte :String = String(listePointsX[index])
+                    // on indique la date
+                    let d = dateCourte(d: listeDates[index])
+                    let v = " -> \(String(format: "%.2f", listePointsX[index]))"
+                    let texte = listeDates.count == listePointsX.count ?"Relevé du \(d): \(v)" : ""
+                    //CoeurVue(centre: CGPoint(x: demiEcart + (ecartement * Double(index))  , y  : Double(debut) - ((listePointsX[index] - yMin) * yUnite)), diametre: 20, colorInt: Color.white, colorExt: couleur, legende: texte)
+                    //Double(debut) - ((listePointsX[index] - yMin) * yUnite))
+                    PointSurCourbeVue(symbole: symbole, centre: CGPoint(x: demiEcart + (ecartement * Double(index))  , y  : (Double(debut) - ((listePointsX[index] - yMin) * yUnite))), diametre: 20, colorInt: Color.white, colorExt: couleur, legende: texte)
+                    }
+                }
+            
             
             //CarroyageHorizontal(limB: Int(listePointsX.min()!), limH: Int(listePointsX.max()!), multi: Int(multi))
             
-        }
+        }// geometry
         
     }
 }

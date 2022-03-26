@@ -34,6 +34,12 @@ struct SaisieSucreView: View {
     //@State var mid1 = 1.0
     //@State var mid2 = 20.0
     @State var showAlert: Bool = false
+    @State var isRegistred = false
+    @State var isModified = false
+    
+    // déterminer le type de terminal
+    private var idiom : UIUserInterfaceIdiom { UIDevice.current.userInterfaceIdiom }
+    
     // MARK: - Fonctions
     func laDate(date:Date)->String{
         let format = DateFormatter()
@@ -86,32 +92,37 @@ struct SaisieSucreView: View {
         return (maxi1, mini1)
     }
     
+
     func testCompatiblite(date:Date, choix: Int)->Bool{
+        
         guard choix > -1 && choix < 8 else {return false}
-        let heure = Calendar.current.component(.hour, from: date)
-        if (heure < 8) && (choix == 0){
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH"
+        let heureS = dateFormatter.string(from: date)
+        let heure = Int(heureS) ?? 0
+
+        if (heure <= 8) && (choix == 0){
             return true
         }
-        if (heure > 10)  && (heure < 12) && ((choix == 1) || (choix == 2))   {
-            //|| (choix == 2))
+        if (heure >= 10)  && (heure < 12) && ((choix == 1) || (choix == 2))  {
             return true
         }
-        if (heure > 16)  && (heure < 18) && ((choix == 3) || (choix == 4))  {
+        if (heure >= 12)  && (heure <= 14) && ((choix == 3) || (choix == 4))  {
             return true
         }
-        if (heure < 16)  && (heure < 18) &&  (choix == 4){
+        if (heure >= 16)  && (heure < 18) &&  (choix == 5){
             return true
         }
-        /*
-        if (heure < 18)  && (heure < 20)   && (choix == 5){
+        if (heure >= 18)  && (heure <= 20)   && (choix == 5){
             return true
         }
-         */
-        if (heure > 22) && (choix == 5){
+        if (heure > 22) && (choix == 6){
             return true
         }
         return false
     }
+
 
     
 
@@ -132,7 +143,8 @@ struct SaisieSucreView: View {
         let newDiabete = MesureSucre(taux: taux, dateMesureS: "", dateMesure: dateDuReleve, itemMomentMesure: moment ,moment: leMoment)
         
         user.addMesureSucre(sucre: newDiabete)
-        
+        isRegistred = true
+        isModified = false
     }
     
     func setDate(){
@@ -145,13 +157,13 @@ struct SaisieSucreView: View {
     // 1g = 14,5 mmol
     var body: some View {
         
-        
         NavigationView {
+            
         ZStack {
             FondEcranSucreView()
             
             VStack{
-                   
+             
                 let animation = Animation
                     .linear(duration: 1.0)
                     .repeatForever(autoreverses: false)
@@ -176,29 +188,47 @@ struct SaisieSucreView: View {
                         //.padding(.vertical, 10)
                     //Spacer()
                 SaisieDate(releveDu: $dateDuReleve, autreJour: $autreJour)
-                    .font(.system(size: 14, weight: .semibold, design: .rounded))
-                    .foregroundColor(Color("BleuSombre"))
-                    .shadow(color: Color("BlackLigth"), radius: 3, x: 0, y: 4)
+                    .modifier(PetitBleuModifier())
                     .padding(.vertical, 10)
                 //setDate()
                 //Text("Mesures réalisées le \(dateDuReleve.identDateAndMoment().date) (\(dateDuReleve.identDateAndMoment().moment))")
                     
                 
-                
-                HStack {
-                    Spacer()
-                    RadioButtonsView(questions: SListeMomentsSucre, choosed: $moment,nbColones: 1,direction: .droite)
-                        .modifier(RadioButtonsModifier())
-                    //RadioButtonsView(questions: ["Réveil", "Apres petit déjeuner", "Avanr déjeuner", "Après déjeuner", "Avant diné", "Couché"], choosed: $moment,nbColones: 1,direction: .droite)
-                        .modifier(RadioButtonsModifier())
+                if idiom == .phone {
+                    HStack {
+                        Spacer()
+                        RadioButtonsView(questions: SListeMomentsSucre, choosed: $moment, isChanged: $isModified,nbColones: 1,direction: .droite)
+                            .modifier(RadioButtonsModifier())
+                        //RadioButtonsView(questions: ["Réveil", "Apres petit déjeuner", "Avanr déjeuner", "Après déjeuner", "Avant diné", "Couché"], choosed: $moment,nbColones: 1,direction: .droite)
+                            .modifier(RadioButtonsModifier())
+                    }
+                    
+                    HStack {
+                        //["Hypoglycémie (< 0.7)", "Normal (0.7...1,4)", "Hyperglycémie modérée (1,4...1,7)", "Diabete ( > 1.7)"]
+                        RadioButtonsView(questions: ListeNiveauxGlycemie, choosed: $niveauGlycemie, isChanged: $isModified,nbColones: 1, direction: .gauche)
+                            .modifier(RadioButtonsModifier())
+                        .padding(.bottom, 10)
+                        Spacer()
+                    }
+                } else {
+                    HStack {
+                        //["Hypoglycémie (< 0.7)", "Normal (0.7...1,4)", "Hyperglycémie modérée (1,4...1,7)", "Diabete ( > 1.7)" ]
+                        RadioButtonsView(questions: ListeNiveauxGlycemie, choosed: $niveauGlycemie, isChanged: $isModified,nbColones: 1, direction: .gauche)
+                            .modifier(RadioButtonsModifier())
+                        .padding(.bottom, 10)
+                        Spacer()
+                        RadioButtonsView(questions: SListeMomentsSucre, choosed: $moment, isChanged: $isModified,nbColones: 1,direction: .droite)
+                            .modifier(RadioButtonsModifier())
+                        //RadioButtonsView(questions: ["Réveil", "Apres petit déjeuner", "Avanr déjeuner", "Après déjeuner", "Avant diné", "Couché"], choosed: $moment,nbColones: 1,direction: .droite)
+                            .modifier(RadioButtonsModifier())
+                    }
                 }
-                
-                RadioButtonsView(questions: ["Hypoglycémie (< 0.7)", "Normal (0.7...1,4)", "Hyperglycémie modérée (1,4...1,7)", "Diabete ( > 1.7)", ], choosed: $niveauGlycemie,nbColones: 1, direction: .gauche)
-                    .modifier(RadioButtonsModifier())
-                    .padding(.bottom, 10)
-                //Text("\(niveauGlycemie) , tapé : \(setValuesSlidersForLevel(level: niveauGlycemie).0) ")
-                
+
+
                 DoubleSliderView(valeur: $taux, titre1: "Taux en Grammes / litre", titre2: "Taux en mmol / litre", mini1: setValuesSlidersForLevel(level:  niveauGlycemie).1, maxi1: setValuesSlidersForLevel(level:  niveauGlycemie).0, pas: 0.01, precision: 2, couleur1: .blue, couleur2: .red)
+                    .onChange(of: taux) { V in
+                        isModified = true
+                    }
                 //DoubleSliderView(valeur: $taux, titre1: "Taux en Grammes / litre", titre2: "Taux en mmol / litre", mini1: setValuesSlidersForLevel().1, maxi1: setValuesSlidersForLevel().0, mini2: min2, maxi2: max2, pas: 0.01, precision: 2, couleur1: .blue, couleur2: .red)
                     
                     if taux > 1.7 {
@@ -211,88 +241,146 @@ struct SaisieSucreView: View {
                             .font(.system(size: 18, weight: .heavy, design: .rounded))
                             .foregroundColor(.red)
                     }
+                
+                  
+                if isModified {
                     
                     Button {
-                        if !autreJour {
-                            dateDuReleve = Date()
+                            if !autreJour {
+                                dateDuReleve = Date()
+                            }
+                            let test = testCompatiblite(date: dateDuReleve, choix: niveauGlycemie)
+                            if !test {
+                                showAlert = true
+                            } else {
+                                enregistrer()
+                            }
+                            
+                        } label: {
+                            BlocBouton(texte: "Enregister cette mesure")
                         }
-                        let test = testCompatiblite(date: dateDuReleve, choix: niveauGlycemie)
-                        if !test {
-                            showAlert = true
-                        } else {
-                            enregistrer()
-                        }
-                        
-                    } label: {
-                        BlocBouton(texte: "Enregister cette mesure")
-                    }
-                    .padding(.vertical , 30)
-                    .alert(isPresented: $showAlert, content: {
-                        Alert(title: Text("Le moment choisi ne semble pas correspondre à l'heure de l'enregistrement !"), message: Text("Dois-je enregistrer ce choix ?"), primaryButton: .default(Text("OK")){
-                            enregistrer()
-                            // user.deleteAllTension()
-                            //datas.deleteAll()
-                        }, secondaryButton: .cancel())
-                })
-    //---------------------------------
-  
-            //-----------------------------------------
-            
-                
-            .toolbar {
-                 
-                /* */
-                ToolbarItem(placement: .navigationBarLeading) {
-                    NavigationLink {
-                        //let patient: Personne = user.listeUsers[user.userCourant]
-                        if user.existCurrentUser(){
-                        CourbeSucreView(patient: user.listeUsers[user.userCourant],choixtoutesMesures: true, choixPrePrandial: true)
-                        }
-                        /*
-                        CourbeSucreView(patient: user.listeUsers[user.userCourant])
-                        }
-                         */
-                        //ListeSucreView(user: user, patient: patient)
-                    } label: {
-                        VStack{
-                            //Image(systemName: "waveform.path.ecg.rectangle")
-                            Image(systemName: "chart.xyaxis.line")
-                            Text("Courbes")
-                                .fixedSize(horizontal: false, vertical: true)
-                                .lineLimit(2)
-                        }
-                        .font(.system(size: 18, weight: .light, design: .rounded))
-                    }
+                        .padding(.vertical , 30)
+                        .alert(isPresented: $showAlert, content: {
+                            Alert(title: Text("Le moment choisi ne semble pas correspondre à l'heure de l'enregistrement !"), message: Text("Dois-je enregistrer ce choix ?"), primaryButton: .default(Text("OK")){
+                                enregistrer()
+                                // user.deleteAllTension()
+                                //datas.deleteAll()
+                            }, secondaryButton: .cancel())
+                    })
                 }
+        //---------------------------------
+      
+                //-----------------------------------------
                 
-                
-
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink {
-                        
-                        ListeSucreView(user: user)
-                    } label: {
-                        VStack{
-                            Image(systemName: "list.bullet.rectangle")
-                            Text("Tous les \nenregistrements")
-                                .fixedSize(horizontal: false, vertical: true)
-                                .lineLimit(2)
+                 /*
+                .toolbar {
+                     
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        NavigationLink {
+                            //let patient: Personne = user.listeUsers[user.userCourant]
+                            if user.existCurrentUser(){
+                            CourbeSucreView(patient: user.listeUsers[user.userCourant],choixtoutesMesures: true, choixPrePrandial: true)
+                            }
+                            
+                            //ListeSucreView(user: user, patient: patient)
+                        } label: {
+                            VStack{
+                                //Image(systemName: "waveform.path.ecg.rectangle")
+                                Image(systemName: "chart.xyaxis.line")
+                                Text("Courbes")
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .lineLimit(2)
+                            }
+                            .font(.system(size: 18, weight: .light, design: .rounded))
                         }
-                        .font(.system(size: 18, weight: .light, design: .rounded))
                     }
+                    
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink {
+                            
+                            ListeSucreView(user: user)
+                        } label: {
+                            VStack{
+                                Image(systemName: "list.bullet.rectangle")
+                                Text("Tous les \nenregistrements")
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .lineLimit(2)
+                            }
+                            .font(.system(size: 18, weight: .light, design: .rounded))
+                        }
+                    }
+                   
+                    
                 }
-               
-                
-            }
+            */
                  //fin de toolbars
-             
-        }// VStack
+                 //------------------------------------------------------
+                    
+                //}
+            }
+            //.padding(.top, -50)// VStack
             
+        }
+        .padding(.horizontal, 10.0)
+        //.navigationViewStyle(DoubleColumnNavigationViewStyle())
+        
+            
+            
+            
+            
+        .toolbar {
+             
+            ToolbarItem(placement: .navigationBarLeading) {
+                NavigationLink {
+                    //let patient: Personne = user.listeUsers[user.userCourant]
+                    if user.existCurrentUser(){
+                    CourbeSucreView(patient: user.listeUsers[user.userCourant],choixtoutesMesures: true, choixPrePrandial: true)
+                    }
+                    
+                    //ListeSucreView(user: user, patient: patient)
+                } label: {
+                    VStack{
+                        //Image(systemName: "waveform.path.ecg.rectangle")
+                        Image(systemName: "chart.xyaxis.line")
+                        Text("Courbes")
+                            .fixedSize(horizontal: false, vertical: true)
+                            .lineLimit(2)
+                    }
+                    .font(.system(size: (idiom == .pad) ? 24 : 18, weight: .light, design: .rounded))
+                }
+            }
+            
+                ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink {
+                    
+                    ListeSucreView(user: user)
+                } label: {
+                    VStack{
+                        Image(systemName: "list.bullet.rectangle")
+                        Text("Tous les enregistrements")
+                            .fixedSize(horizontal: false, vertical: true)
+                            .lineLimit(2)
+                    }
+                    .font(.system(size: (idiom == .pad) ? 24 : 18, weight: .light, design: .rounded))
+                }
+            }
+           
+            
+        }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        //.padding(.horizontal, 10.0)
+        
         }//Navigation view
         .navigationViewStyle(StackNavigationViewStyle())
-        .padding(.horizontal, 10.0)
-        
-        }
     }
 }
 

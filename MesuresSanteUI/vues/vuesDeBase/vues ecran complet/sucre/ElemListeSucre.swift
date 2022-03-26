@@ -23,19 +23,24 @@ struct ElemListeSucre: View {
                 .font(.system(size: 35, weight: .medium, design: .rounded) )
                 .foregroundColor(.red)
                 .scaleEffect(pulse ? 1.1 : 0.9)
-                .animation(.easeInOut(duration: 1).repeatForever(autoreverses: true) )
+                //.animation(.easeInOut(duration: 1).repeatForever(autoreverses: true) )
             
             VStack(alignment: .leading, spacing: 4){
                 Text(ligne1)
-                    .font(.system(size: 16, weight: .bold, design: .rounded) )
-                    .foregroundColor(.blue)
+                    .modifier(TresPetitBleuModifier())
+                    //.font(.system(size: 16, weight: .bold, design: .rounded) )
+                    //.foregroundColor(.blue)
                 Text("\(ligne2) : \(valeur, specifier: "%.3f")")
-                    .font(.system(size: 16, weight: .medium, design: .rounded) )
+                    .modifier(TresPetitBleuModifier())
+                    //.font(.system(size: 16, weight: .medium, design: .rounded) )
             }
             
         }
         .onAppear {
-            pulse.toggle()
+            //pulse.toggle()
+            withAnimation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true) ) {
+                pulse = true
+            }
         }
     }
 }

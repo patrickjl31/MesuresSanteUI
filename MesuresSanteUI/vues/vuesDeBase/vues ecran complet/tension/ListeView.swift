@@ -51,7 +51,7 @@ struct ListeView: View {
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
                     .scaleEffect(pulse ? 1.1 : 1)
                     .opacity(0.8)
-                    .animation(.easeInOut(duration: 1).repeatForever(autoreverses: true) )
+                    //.animation(.easeInOut(duration: 1).repeatForever(autoreverses: true) )
                 Spacer()
             })
             
@@ -129,7 +129,9 @@ struct ListeView: View {
         }
         .onAppear(){
             //pulse.toggle()
-            pulse = true
+            withAnimation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true) ) {
+                pulse = true
+            }
         }
 
         

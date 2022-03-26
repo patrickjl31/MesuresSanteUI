@@ -31,9 +31,7 @@ struct LargeGraphicSucre: View {
     
     
     var body: some View {
-        //let datas = patient.diabete
-        //let sucres : [MesureSucre] = patient.diabete.sucre
-        let sucres :[MesureSucre] = patient.diabete.sucre//datas.sucre
+        
         
         //ZStack {
             VStack {

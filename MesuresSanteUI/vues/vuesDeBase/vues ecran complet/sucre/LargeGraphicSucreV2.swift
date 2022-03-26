@@ -31,7 +31,7 @@ struct LargeGraphicSucreV2: View {
     
     var body: some View {
         
-        let sucres :[MesureSucre] = patient.diabete.sucre//datas.sucre
+        //let sucres :[MesureSucre] = patient.diabete.sucre//datas.sucre
         
         //ZStack {
             VStack {
@@ -60,9 +60,6 @@ struct LargeGraphicSucreV2: View {
                         
                         
                         if !patient.diabete.noMesures() {
-                            
-                            //let courbe = patient.diabete.courbeFine(moment: [])
-                            //let test: Double = courbe.valSucre[0]
                             
                             
                             ZStack(alignment: .leading) {

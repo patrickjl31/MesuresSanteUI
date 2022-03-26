@@ -26,7 +26,7 @@ struct TraceCourbe: View {
     
     func setMulti()-> Double{
         let maxi = Double( listePointsX.max() ?? 0)
-        let mini = Double( listePointsX.min() ?? 0)
+        //let mini = Double( listePointsX.min() ?? 0)
         //multi = hauteurCourbe / maxi
         return hauteurCourbe / maxi
     }
@@ -78,14 +78,21 @@ struct TraceCourbe: View {
             CercleVue(centre: CGPoint(x: demiEcart, y: listePointsX[0]  * multi), diametre: 10, colorInt: Color.white, colorExt: Color.red)
  */
 
-            ForEach(0..<listePointsX.count){index in
-                //let texte :String = String(listePointsX[index])
-                // on indique la date
-                let d = dateCourte(d: listeDates[index])
-                let v = " -> \(String(format: "%.2f", listePointsX[index]))"
-                let texte = listeDates.count == listePointsX.count ?"Relevé du \(d): \(v)" : ""
-                //CoeurVue(centre: CGPoint(x: demiEcart + (ecartement * Double(index))  , y  : Double(debut) - (listePointsX[index]  * setMulti())), diametre: 20, colorInt: Color.white, colorExt: couleur, legende: texte)
-                PointSurCourbeVue(symbole: symbole, centre: CGPoint(x: demiEcart + (ecartement * Double(index))  , y  : Double(debut) - (listePointsX[index]  * setMulti())), diametre: 20, colorInt: Color.white, colorExt: couleur, legende: texte)
+            VStack {
+                let nombreDePoints = listePointsX.count
+                if nombreDePoints > 0 {
+                    ForEach((0..<nombreDePoints),id: \.self){index in
+                    //let texte :String = String(listePointsX[index])
+                    // on indique la date
+                    let d = dateCourte(d: listeDates[index])
+                    let v = " -> \(String(format: "%.2f", listePointsX[index]))"
+                    let texte = listeDates.count == listePointsX.count ?"Relevé du \(d): \(v)" : ""
+                    //CoeurVue(centre: CGPoint(x: demiEcart + (ecartement * Double(index))  , y  : Double(debut) - (listePointsX[index]  * setMulti())), diametre: 20, colorInt: Color.white, colorExt: couleur, legende: texte)
+                    PointSurCourbeVue(symbole: symbole, centre: CGPoint(x: demiEcart + (ecartement * Double(index))  , y  : Double(debut) - (listePointsX[index]  * setMulti())), diametre: 20, colorInt: Color.white, colorExt: couleur, legende: texte)
+                    }
+                } else {
+                    /*@START_MENU_TOKEN@*/EmptyView()/*@END_MENU_TOKEN@*/
+                }
             }
             
             //CarroyageHorizontal(limB: Int(listePointsX.min()!), limH: Int(listePointsX.max()!), multi: Int(multi))

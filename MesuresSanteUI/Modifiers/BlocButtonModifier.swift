@@ -1,13 +1,14 @@
 //
-//  MyTitleModifier.swift
+//  BlocButtonModifier.swift
 //  MesuresSanteUI
 //
-//  Created by patrick lanneau on 13/03/2022.
+//  Created by patrick lanneau on 25/03/2022.
 //
 
+import Foundation
 import SwiftUI
 
-struct MyTitleModifier: ViewModifier {
+struct BlocButtonModifier: ViewModifier {
     //private var idiom : UIUserInterfaceIdiom { UIDevice.current.userInterfaceIdiom }
     
     func body(content: Content) -> some View {
@@ -16,9 +17,8 @@ struct MyTitleModifier: ViewModifier {
             .foregroundColor(.white)
             .padding(.horizontal, 40)
             .padding(.vertical, 5)
-            //.background(LinearGradient(gradient: Gradient(colors: [Color("BleuClair"), Color("BleuSombre")]), startPoint: .top, endPoint: .bottom))
-            .background(.blue)
+            .background(LinearGradient(gradient: Gradient(colors: [Color("BleuClair"), Color("BleuSombre")]), startPoint: .top, endPoint: .bottom))
+            //.background(.blue)
             .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 }
-

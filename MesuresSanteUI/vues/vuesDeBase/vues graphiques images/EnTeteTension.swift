@@ -16,8 +16,8 @@ struct EnTeteTension: View {
                 .frame(width: 350, height: 70, alignment: .center)
                 .opacity(0.6)
             Text("Surveillez votre tension...")
-                .font(.system(size: 18, weight: .heavy, design: .rounded))
-            .foregroundColor(Color("BleuSombre"))
+                .modifier(TitreBleuModifier())
+            //.foregroundColor(Color("BleuSombre"))
         }
     }
 }

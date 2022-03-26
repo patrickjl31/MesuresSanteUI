@@ -205,47 +205,47 @@ class Personne : ObservableObject ,Codable, Identifiable, Hashable {
 
     //-----------  fchiers locaux------
     func saveSucre(){
-        let ident = stringIdentity() + SUCRE
-        let defaults = UserDefaults.standard
+        //let ident = stringIdentity() + SUCRE
+        //let defaults = UserDefaults.standard
         //defaults.set(diabete, forKey: "diabete")//------------------------------------------------------
         // enregistrement sur fichier
         save2File()
     }
     
     func recallSucre(){
-        let ident = stringIdentity() + SUCRE
+        //let ident = stringIdentity() + SUCRE
         let userdefault = UserDefaults.standard
         diabete = userdefault.object(forKey: "diabete") as? MesuresSucre ?? MesuresSucre()
-        recallFromFile()
+        _ = recallFromFile()
     }
     
     
     func saveRapports(){
-        let ident = stringIdentity() + RAPPORT
-        let defaults = UserDefaults.standard
+        //let ident = stringIdentity() + RAPPORT
+        //let defaults = UserDefaults.standard
         //defaults.set(rapportsQuotidien, forKey: "rapportsQuotidien") //-----------------------------------------
         // enregistrement sur fichier
         save2File()
     }
     func recallRapports() {
-        let ident = stringIdentity() + RAPPORT
+        //let ident = stringIdentity() + RAPPORT
         let userdefault = UserDefaults.standard
         rapportsQuotidien = userdefault.object(forKey: "rapportsQuotidien") as? [RapportQuotidien] ?? []
-        recallFromFile()
+        _ = recallFromFile()
     }
     func saveTension(){
-        let ident = stringIdentity() + TENSIONS
-        let defaults = UserDefaults.standard
+        //let ident = stringIdentity() + TENSIONS
+        //let defaults = UserDefaults.standard
         //defaults.set(tension, forKey: "tension") //------------------------------------------
         // enregistrement sur fichier
         save2File()
     }
     
     func recallTension(){
-        let ident = stringIdentity() + TENSIONS
+        //let ident = stringIdentity() + TENSIONS
         let userdefault = UserDefaults.standard
         tension = userdefault.object(forKey: "tension") as? Mesures ?? Mesures()
-        recallFromFile()
+        _ = recallFromFile()
     }
     
 
@@ -413,7 +413,7 @@ class Personne : ObservableObject ,Codable, Identifiable, Hashable {
  
     // Exopr to airdrop
     func toAirdrop(mesuresDe: String = TENSIONS)->String {
-        var content = ""
+        let content = ""
         if mesuresDe == TENSIONS {
             let sortie = tension.toJson() ?? ""
             return sortie

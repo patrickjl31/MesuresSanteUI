@@ -13,7 +13,7 @@ struct RadioButton: View {
     var Texte : String = ""
     var tag : Int
     @Binding var choosed : Int
-    @State var isChanged:Bool = true
+    @Binding var isChanged:Bool// = true
     var direction:Orientation = .droite
 
     
@@ -46,7 +46,7 @@ struct RadioButton: View {
 
 struct RadioButton_Previews: PreviewProvider {
     static var previews: some View {
-        RadioButton(Texte: "Sujet : ", tag: 1, choosed: .constant(1), direction: .droite)
+        RadioButton(Texte: "Sujet : ", tag: 1, choosed: .constant(1), isChanged: .constant(false), direction: .droite)
         //RadioButton(isChanged: .constant(true))
     }
 }

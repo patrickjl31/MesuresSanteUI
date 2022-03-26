@@ -20,10 +20,13 @@ struct CourbeSucreView: View {
         ZStack {
             
             VStack{
-                TitulatureView(titreSpecifique: "Votre glycémie en courbes...")
-                    .padding(.top, 250)
-                PeriodeView(patient: patient)
+                //TitulatureView(titreSpecifique: "Votre glycémie en courbes...")
+                    //.padding(.top, 250)
+                EnTeteSucre()
+                    .padding(.top, 150)
+                PeriodeView(patient: patient, typeMesure: SUCRE)
                     //.offset(x: 0, y: 30)
+                
                 Toggle("Voir les mesures post et preprandiale ensembles ?", isOn: $choixtoutesMesures)
                     .tint(.blue)
                     .modifier(PetitBleuModifier())

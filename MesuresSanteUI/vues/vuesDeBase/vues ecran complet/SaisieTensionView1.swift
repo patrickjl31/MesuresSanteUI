@@ -31,7 +31,15 @@ struct SaisieTensionView1: View {
     @State var releveDu : Date = Date()
     
     @State var pulse:Bool = false
+    
+    @State var modificationsSliders : Int = 0
     @State var isModified = false
+    
+    @State var isModifiedSyst = false
+    @State var isModifiedDiast = false
+    @State var isModifiedCoeur = false
+    @State var isModifiedOxy = false
+    
     
     // Valeurs par défaut
     let defautSystolique : Double = 12
@@ -118,7 +126,7 @@ struct SaisieTensionView1: View {
                     VStack{
                         
                         EnTeteTension()
-                            .scaleEffect(pulse ? 1.1 : 0.8)
+                            .scaleEffect(pulse ? 1.0 : 0.8)
                             .onAppear(){
                                 DispatchQueue.main.async {
                             // << postpone till end of views construction !!
@@ -129,28 +137,27 @@ struct SaisieTensionView1: View {
                             }
                             //pulse.toggle()
                         }
-                       
+                            .padding(.bottom, 20)
                         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 10, content: {
                             Text("Prenez votre tension matin et soir...")
-                                .font(.title2)
-                                .fontWeight(.heavy)
+                                .modifier(ItaliqueBleuModifier())
                                 .multilineTextAlignment(.center)
                            
                             Text("Prenez la 2 ou 3 fois, je ferai la moyenne...")
-                                .font(.title3)
-                                .fontWeight(.bold)
+                                .modifier(PetitBleuModifier())
                             Divider()
                              
                             SaisieDate(releveDu: $releveDu, autreJour: $autreJour)
-                            
+                                .modifier(PetitBleuModifier())
                         })
                         .multilineTextAlignment(.center)
-                        .foregroundColor(Color("BleuNoir"))
+                        //.foregroundColor(Color("BleuNoir"))
                         .padding(.bottom, 20)
                         //Spacer(minLength: 10)
                         Group {
                             VStack {
                                 DemandeDouble(titre: "Systolique", valeur: $systolique, isChanged: $isModified, mini: 3, maxi : 26, couleur: COUL_SYSTO)
+                                //isModified = isModifiedSyst
                                 DemandeDouble(titre: "Diastolique", valeur: $diastolique, isChanged: $isModified, mini: 3, maxi : 26, couleur: COUL_DIASTO)
                                 DemandeDouble(titre: "Fréquence cardiaque", valeur: $coeur, isChanged: $isModified, mini: 30, maxi : 160, pas: 1, couleur: COUL_COEUR)
                                 DemandeDouble(titre: "Oxygène", valeur: $oxygene, isChanged: $isModified,  mini: 20, maxi : 100, pas: 1, couleur: COUL_OXY)
@@ -163,8 +170,7 @@ struct SaisieTensionView1: View {
                                 let attention = testConstantes()
                                 if attention.count > 0 {
                                     Text(attention)
-                                        .font(.system(size: 14, weight: .heavy, design: .rounded))
-                                        .foregroundColor(Color.white)
+                                        .modifier(PetitRougeModifier())
                                         .background(Color.red)
                                         .padding(.horizontal, 10)
                                 }
@@ -173,7 +179,7 @@ struct SaisieTensionView1: View {
                             HStack{
                                 Text("Moyenne :")
                                     .foregroundColor(.black)
-                                    .font(.system(size: 18, weight:.bold, design: .rounded))
+                                    .font(.system(size: (idiom == .pad) ? 24 : 18, weight:.bold, design: .rounded))
                                 VStack(alignment: .leading, spacing: 2){
                                     Text("Systolique ->\(memsystolique, specifier: "%.1f")")
                                         .foregroundColor(COUL_SYSTO)
@@ -185,7 +191,7 @@ struct SaisieTensionView1: View {
                                     Text("Oxygène ->\(memoxygene, specifier: "%.0f")")
                                         .foregroundColor(COUL_OXY)
                                 }
-                                .font(.system(size: 13, weight: .black, design: .rounded))
+                                .font(.system(size: (idiom == .pad) ? 18 : 13, weight: .black, design: .rounded))
                                 
                                 
                                 // Voir en listes
@@ -212,8 +218,9 @@ struct SaisieTensionView1: View {
                         }
                         .font(.system(size: 16, weight: .bold, design: .rounded))
                         //allSliderSelecteds()
-                        if isModified {
+                        if  isModified {
                             Button(action: {
+                                
                                 isModified = false
                                 combienMesures += 1
                                 memsystolique = calculeMoyenne(cumul: memsystolique, nouveau: systolique, mesures: combienMesures)
@@ -276,7 +283,7 @@ struct SaisieTensionView1: View {
                                     .fixedSize(horizontal: false, vertical: true)
                                     .lineLimit(2)
                             }
-                            .font(.system(size: 18, weight: .light, design: .rounded))
+                            .font(.system(size: (idiom == .pad) ? 24 : 18, weight: .light, design: .rounded))
                         }
                     }
                     
@@ -295,7 +302,7 @@ struct SaisieTensionView1: View {
                                     .fixedSize(horizontal: false, vertical: true)
                                     .lineLimit(2)
                             }
-                            .font(.system(size: 18, weight: .light, design: .rounded))
+                            .font(.system(size: (idiom == .pad) ? 24 : 18, weight: .light, design: .rounded))
                         }
                     }
                     

@@ -19,8 +19,9 @@ struct LigneUserView: View {
             
                 //.font(.system(size: 28, weight: .bold, design: .rounded))
             Text("\(patient.prenom) \(patient.nom)")
-                .font(.title3)
-                .fontWeight(.bold)
+                .modifier(PetitBleuModifier())
+                //.font(.title3)
+                //.fontWeight(.bold)
                 .multilineTextAlignment(.leading)
             Spacer()
             if isChecked {Image(systemName: "checkmark")}

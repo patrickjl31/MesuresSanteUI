@@ -11,6 +11,7 @@ struct RadioButtonsView: View {
     
     var questions : [String]
     @Binding var choosed:Int
+    @Binding var isChanged : Bool// = false
     var nbColones : Int = 1
     var direction: Orientation = .droite
     
@@ -63,7 +64,7 @@ struct RadioButtonsView: View {
                        //Spacer()
                         ForEach((0..<t[item].count) , id:\.self){elem in
                             let pourtag: Int = binaireToDec(val: (item * 10) + elem)
-                            RadioButton(Texte: t[item][elem], tag: pourtag, choosed: $choosed, isChanged: true, direction: elem == 0 ? .droite :.gauche)
+                            RadioButton(Texte: t[item][elem], tag: pourtag, choosed: $choosed, isChanged: $isChanged, direction: elem == 0 ? .droite :.gauche)
                            
                         }
                         //Spacer()
@@ -72,7 +73,7 @@ struct RadioButtonsView: View {
                 
             } else {
                 ForEach((0..<questions.count) , id:\.self){index in
-                    RadioButton(Texte: questions[index], tag: index, choosed: $choosed, isChanged: true, direction: direction)
+                    RadioButton(Texte: questions[index], tag: index, choosed: $choosed, isChanged: $isChanged, direction: direction)
                 }
             }
             
@@ -91,6 +92,6 @@ struct RadioButtonsView: View {
 struct RadioButtonsView_Previews: PreviewProvider {
     static var previews: some View {
         //RadioButtonsView(questions: ["Choix1","Choix1","Choix2","Choix3","Choix4", choosed: .constant(1))
-        RadioButtonsView(questions: ["Le bon Choix0","Choix1","Choix2","Choix3 à évifer si possible","Choix4"], choosed: Binding<Int>.constant(1), direction: .gauche)
+        RadioButtonsView(questions: ["Le bon Choix0","Choix1","Choix2","Choix3 à évifer si possible","Choix4"], choosed: Binding<Int>.constant(1), isChanged: .constant(false), direction: .gauche)
     }
 }

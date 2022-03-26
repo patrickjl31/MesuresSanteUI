@@ -1,13 +1,13 @@
 //
-//  ElemListeCardio.swift
+//  ElemListeCardioBis.swift
 //  MesuresSanteUI
 //
-//  Created by patrick lanneau on 11/02/2022.
+//  Created by patrick lanneau on 26/03/2022.
 //
 
 import SwiftUI
 
-struct ElemListeCardio: View {
+struct ElemListeCardioBis: View {
     var ligne1:String
     var ligne2: String
     
@@ -22,6 +22,7 @@ struct ElemListeCardio: View {
                 .font(.system(size: 35, weight: .medium, design: .rounded) )
                 .foregroundColor(.red)
                 .scaleEffect(pulse ? 1.1 : 0.9)
+            
                 //.animation(.easeInOut(duration: 1).repeatForever(autoreverses: true) )
             
             VStack(alignment: .leading, spacing: 4){
@@ -42,8 +43,8 @@ struct ElemListeCardio: View {
     }
 }
 
-struct ElemListeCardio_Previews: PreviewProvider {
+struct ElemListeCardioBis_Previews: PreviewProvider {
     static var previews: some View {
-        ElemListeCardio(ligne1: "12/2/67 AM", ligne2: "12/2/67 AM")
+        ElemListeCardioBis(ligne1: "12/2/67 AM", ligne2: "12/2/67 AM")
     }
 }

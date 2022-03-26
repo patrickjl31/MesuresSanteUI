@@ -13,7 +13,7 @@ struct TensionBarView: View {
     //@ObservedObject var datas : Mesures
     
     var body: some View {
-        ZStack {
+       
             
             VStack {
                 TitulatureView(titreSpecifique: "Vos résultats en histogrammes...")
@@ -55,16 +55,13 @@ struct TensionBarView: View {
                                     .opacity(0.6)
                             }
                             
-                            
-                            
                         }
-                        
-                            
+                        .font(.callout)
                             }
-                            .font(.title3)
+                            //.font(.title3)
             }
             
-            /*
+            /*_________________________________________________________
             HStack{
             VStack {
                 //Spacer(minLength: 800)
@@ -116,10 +113,11 @@ struct TensionBarView: View {
                 
           
             }
+             // _______________________________
             */
             }
             Spacer()
-        }
+        
     }
 }
 

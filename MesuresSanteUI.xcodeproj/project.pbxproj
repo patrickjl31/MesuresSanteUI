@@ -11,12 +11,16 @@
 		2A1C06C327E6675700E6522B /* ItaliqueBleuModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C06C227E6675700E6522B /* ItaliqueBleuModifier.swift */; };
 		2A1C06C527E75CDE00E6522B /* LargeGraphicSucreV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C06C427E75CDE00E6522B /* LargeGraphicSucreV2.swift */; };
 		2A1C06C727E7612900E6522B /* PetitBleuModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C06C627E7612900E6522B /* PetitBleuModifier.swift */; };
+		2A1C06CD27EA1C6500E6522B /* RadioButtonsIpadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C06CC27EA1C6500E6522B /* RadioButtonsIpadModifier.swift */; };
+		2A1C06D127EE0ADE00E6522B /* PetitRougeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C06D027EE0ADE00E6522B /* PetitRougeModifier.swift */; };
+		2A1C06D327EE0E0000E6522B /* TresPetitBleuModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C06D227EE0E0000E6522B /* TresPetitBleuModifier.swift */; };
+		2A1C06D527EE17B600E6522B /* BlocButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C06D427EE17B600E6522B /* BlocButtonModifier.swift */; };
 		2A4399C327DA553700DC97A3 /* ExtractedVievBar1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4399C227DA553700DC97A3 /* ExtractedVievBar1.swift */; };
 		2A4399C527DC9BC300DC97A3 /* TraceCourbe1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4399C427DC9BC300DC97A3 /* TraceCourbe1.swift */; };
 		2A4399CB27DE6B1800DC97A3 /* MyTitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4399CA27DE6B1800DC97A3 /* MyTitleModifier.swift */; };
 		2A4399D127DE6F0900DC97A3 /* TitreBleuModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4399D027DE6F0900DC97A3 /* TitreBleuModifier.swift */; };
 		2A4399D327DE8FBE00DC97A3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A4399D227DE8FBE00DC97A3 /* Launch Screen.storyboard */; };
-		2A49B3B527C7C57300E4319F /* CourbrSucreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49B3B427C7C57300E4319F /* CourbrSucreView.swift */; };
+		2A49B3B527C7C57300E4319F /* CourbeSucreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49B3B427C7C57300E4319F /* CourbeSucreView.swift */; };
 		2A49B3B927C910A400E4319F /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49B3B827C910A400E4319F /* Users.swift */; };
 		2A85A8ED27BD2D770096BF60 /* BlocStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A85A8EC27BD2D770096BF60 /* BlocStepper.swift */; };
 		2A85A8EF27BD34110096BF60 /* ElemListePatient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A85A8EE27BD34110096BF60 /* ElemListePatient.swift */; };
@@ -102,11 +106,11 @@
 		2AE316F027CA46E400B11582 /* TousLesRapports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE316EF27CA46E400B11582 /* TousLesRapports.swift */; };
 		2AE316F327CA4EF600B11582 /* AccueilPatients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE316F227CA4EF600B11582 /* AccueilPatients.swift */; };
 		2AE3171327CD14C300B11582 /* ListeUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3171227CD14C300B11582 /* ListeUsers.swift */; };
-		2AE3171527CD154400B11582 /* LigneUserView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3171427CD154400B11582 /* LigneUserView1.swift */; };
 		2AE3171827CD570500B11582 /* LegendeSucre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3171727CD570500B11582 /* LegendeSucre.swift */; };
 		2AE3171A27CD5A1A00B11582 /* LargeGraphicSucre1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3171927CD5A1A00B11582 /* LargeGraphicSucre1.swift */; };
-		2AF2E7B827D2113000E3FA48 /* QemandeNomModifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF2E7B727D2113000E3FA48 /* QemandeNomModifiable.swift */; };
+		2AF2E7B827D2113000E3FA48 /* DemandeNomModifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF2E7B727D2113000E3FA48 /* DemandeNomModifiable.swift */; };
 		2AF2E7BA27D289C900E3FA48 /* DemandeNomBis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF2E7B927D289C900E3FA48 /* DemandeNomBis.swift */; };
+		2AF4D1ED27EF410400815FD9 /* ElemListeCardioBis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4D1EC27EF410400815FD9 /* ElemListeCardioBis.swift */; };
 		2AF6263427D6829000C13E04 /* LargeGraphicView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF6263327D6829000C13E04 /* LargeGraphicView1.swift */; };
 		2AF6263627D6855A00C13E04 /* SaisieTensionView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF6263527D6855A00C13E04 /* SaisieTensionView1.swift */; };
 		2AF6263827D917CE00C13E04 /* ListeUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF6263727D917CE00C13E04 /* ListeUsersView.swift */; };
@@ -117,12 +121,16 @@
 		2A1C06C227E6675700E6522B /* ItaliqueBleuModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItaliqueBleuModifier.swift; sourceTree = "<group>"; };
 		2A1C06C427E75CDE00E6522B /* LargeGraphicSucreV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeGraphicSucreV2.swift; sourceTree = "<group>"; };
 		2A1C06C627E7612900E6522B /* PetitBleuModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitBleuModifier.swift; sourceTree = "<group>"; };
+		2A1C06CC27EA1C6500E6522B /* RadioButtonsIpadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonsIpadModifier.swift; sourceTree = "<group>"; };
+		2A1C06D027EE0ADE00E6522B /* PetitRougeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitRougeModifier.swift; sourceTree = "<group>"; };
+		2A1C06D227EE0E0000E6522B /* TresPetitBleuModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TresPetitBleuModifier.swift; sourceTree = "<group>"; };
+		2A1C06D427EE17B600E6522B /* BlocButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocButtonModifier.swift; sourceTree = "<group>"; };
 		2A4399C227DA553700DC97A3 /* ExtractedVievBar1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractedVievBar1.swift; sourceTree = "<group>"; };
 		2A4399C427DC9BC300DC97A3 /* TraceCourbe1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceCourbe1.swift; sourceTree = "<group>"; };
 		2A4399CA27DE6B1800DC97A3 /* MyTitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTitleModifier.swift; sourceTree = "<group>"; };
 		2A4399D027DE6F0900DC97A3 /* TitreBleuModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitreBleuModifier.swift; sourceTree = "<group>"; };
 		2A4399D227DE8FBE00DC97A3 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		2A49B3B427C7C57300E4319F /* CourbrSucreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourbrSucreView.swift; sourceTree = "<group>"; };
+		2A49B3B427C7C57300E4319F /* CourbeSucreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourbeSucreView.swift; sourceTree = "<group>"; };
 		2A49B3B827C910A400E4319F /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		2A85A8EC27BD2D770096BF60 /* BlocStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocStepper.swift; sourceTree = "<group>"; };
 		2A85A8EE27BD34110096BF60 /* ElemListePatient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElemListePatient.swift; sourceTree = "<group>"; };
@@ -210,11 +218,11 @@
 		2AE316F127CA4E5500B11582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2AE316F227CA4EF600B11582 /* AccueilPatients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccueilPatients.swift; sourceTree = "<group>"; };
 		2AE3171227CD14C300B11582 /* ListeUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeUsers.swift; sourceTree = "<group>"; };
-		2AE3171427CD154400B11582 /* LigneUserView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LigneUserView1.swift; sourceTree = "<group>"; };
 		2AE3171727CD570500B11582 /* LegendeSucre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendeSucre.swift; sourceTree = "<group>"; };
 		2AE3171927CD5A1A00B11582 /* LargeGraphicSucre1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeGraphicSucre1.swift; sourceTree = "<group>"; };
-		2AF2E7B727D2113000E3FA48 /* QemandeNomModifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QemandeNomModifiable.swift; sourceTree = "<group>"; };
+		2AF2E7B727D2113000E3FA48 /* DemandeNomModifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemandeNomModifiable.swift; sourceTree = "<group>"; };
 		2AF2E7B927D289C900E3FA48 /* DemandeNomBis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemandeNomBis.swift; sourceTree = "<group>"; };
+		2AF4D1EC27EF410400815FD9 /* ElemListeCardioBis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElemListeCardioBis.swift; sourceTree = "<group>"; };
 		2AF6263327D6829000C13E04 /* LargeGraphicView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeGraphicView1.swift; sourceTree = "<group>"; };
 		2AF6263527D6855A00C13E04 /* SaisieTensionView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaisieTensionView1.swift; sourceTree = "<group>"; };
 		2AF6263727D917CE00C13E04 /* ListeUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeUsersView.swift; sourceTree = "<group>"; };
@@ -234,8 +242,24 @@
 		2A1C06C127E33CF400E6522B /* unused */ = {
 			isa = PBXGroup;
 			children = (
-				2AF6263527D6855A00C13E04 /* SaisieTensionView1.swift */,
 				2A9EB63927B6918800148422 /* SaisieTensionView.swift */,
+			);
+			path = unused;
+			sourceTree = "<group>";
+		};
+		2A1C06CE27ECE35900E6522B /* unused */ = {
+			isa = PBXGroup;
+			children = (
+				2A85A8FD27BEDEE00096BF60 /* ElemListePatient1.swift */,
+			);
+			path = unused;
+			sourceTree = "<group>";
+		};
+		2A1C06CF27ECF74D00E6522B /* unused */ = {
+			isa = PBXGroup;
+			children = (
+				2A9EB66827B7D11800148422 /* LargeGraphicView.swift */,
+				2A4399C227DA553700DC97A3 /* ExtractedVievBar1.swift */,
 			);
 			path = unused;
 			sourceTree = "<group>";
@@ -260,10 +284,14 @@
 			isa = PBXGroup;
 			children = (
 				2A4399CA27DE6B1800DC97A3 /* MyTitleModifier.swift */,
+				2A1C06D427EE17B600E6522B /* BlocButtonModifier.swift */,
 				2A4399D027DE6F0900DC97A3 /* TitreBleuModifier.swift */,
 				2A1C06C227E6675700E6522B /* ItaliqueBleuModifier.swift */,
 				2A1C06C627E7612900E6522B /* PetitBleuModifier.swift */,
 				2ABDE98827E22B0900B15159 /* RadioButtonsModifier.swift */,
+				2A1C06D227EE0E0000E6522B /* TresPetitBleuModifier.swift */,
+				2A1C06D027EE0ADE00E6522B /* PetitRougeModifier.swift */,
+				2A1C06CC27EA1C6500E6522B /* RadioButtonsIpadModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -294,8 +322,9 @@
 			isa = PBXGroup;
 			children = (
 				2A9EB66527B6FCF100148422 /* ElemListeCardio.swift */,
+				2AF4D1EC27EF410400815FD9 /* ElemListeCardioBis.swift */,
 				2A85A8EE27BD34110096BF60 /* ElemListePatient.swift */,
-				2A85A8FD27BEDEE00096BF60 /* ElemListePatient1.swift */,
+				2A1C06CE27ECE35900E6522B /* unused */,
 			);
 			path = "elements de listes";
 			sourceTree = "<group>";
@@ -336,7 +365,7 @@
 		2A85A90F27C1641E0096BF60 /* vues graphiques */ = {
 			isa = PBXGroup;
 			children = (
-				2A9EB64027B6918800148422 /* TraceCourbe.swift */,
+				2AF4D1EE27EF4B2F00815FD9 /* unused */,
 				2A4399C427DC9BC300DC97A3 /* TraceCourbe1.swift */,
 			);
 			path = "vues graphiques";
@@ -356,14 +385,13 @@
 			isa = PBXGroup;
 			children = (
 				2A85A91427C29B9F0096BF60 /* Courbes1View.swift */,
-				2A9EB66827B7D11800148422 /* LargeGraphicView.swift */,
 				2AF6263327D6829000C13E04 /* LargeGraphicView1.swift */,
 				2A85A91627C2A4F80096BF60 /* TensionBarView.swift */,
 				2A9EB64E27B6918800148422 /* ListeView.swift */,
 				2A9EB66A27B7F9BB00148422 /* CarroyageHorizontal1.swift */,
 				2A9EB63D27B6918800148422 /* CarroyageHorizontal.swift */,
-				2A4399C227DA553700DC97A3 /* ExtractedVievBar1.swift */,
 				2A85A91027C164850096BF60 /* ExtractedVievBar.swift */,
+				2A1C06CF27ECF74D00E6522B /* unused */,
 			);
 			path = tension;
 			sourceTree = "<group>";
@@ -371,7 +399,7 @@
 		2A85A91A27C2B77C0096BF60 /* sucre */ = {
 			isa = PBXGroup;
 			children = (
-				2A49B3B427C7C57300E4319F /* CourbrSucreView.swift */,
+				2A49B3B427C7C57300E4319F /* CourbeSucreView.swift */,
 				2A85A90927BF98710096BF60 /* ListeSucreView.swift */,
 				2A1C06C427E75CDE00E6522B /* LargeGraphicSucreV2.swift */,
 				2AF2E7B527CE41C200E3FA48 /* Unussed */,
@@ -507,6 +535,7 @@
 			children = (
 				2ADD5BA527D33A9500FEFE3A /* ConfigView.swift */,
 				2A9EB67427B8174D00148422 /* SaisieSucreView.swift */,
+				2AF6263527D6855A00C13E04 /* SaisieTensionView1.swift */,
 				2A9EB67027B8124000148422 /* SaisieConstantes.swift */,
 				2ADC898127BAC698006C362D /* RapportDuJourView.swift */,
 				2A1C06C127E33CF400E6522B /* unused */,
@@ -565,7 +594,6 @@
 			children = (
 				2AE3171227CD14C300B11582 /* ListeUsers.swift */,
 				2ADD5BB727D4CD0400FEFE3A /* LigneUserView.swift */,
-				2AE3171427CD154400B11582 /* LigneUserView1.swift */,
 			);
 			path = "liste usagers";
 			sourceTree = "<group>";
@@ -583,11 +611,19 @@
 			isa = PBXGroup;
 			children = (
 				2ADC898327BAE9EC006C362D /* DemandeNom.swift */,
-				2AF2E7B727D2113000E3FA48 /* QemandeNomModifiable.swift */,
+				2AF2E7B727D2113000E3FA48 /* DemandeNomModifiable.swift */,
 				2A4399C727DD07B500DC97A3 /* unusedd */,
 				2ADD5BB127D38AB100FEFE3A /* demandeidentite */,
 			);
 			path = "Demande du  nom";
+			sourceTree = "<group>";
+		};
+		2AF4D1EE27EF4B2F00815FD9 /* unused */ = {
+			isa = PBXGroup;
+			children = (
+				2A9EB64027B6918800148422 /* TraceCourbe.swift */,
+			);
+			path = unused;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -666,7 +702,7 @@
 				2A85A8FA27BE9CB80096BF60 /* ListeRapportsView.swift in Sources */,
 				2A9EB65C27B6918800148422 /* Help3.swift in Sources */,
 				2AE3171A27CD5A1A00B11582 /* LargeGraphicSucre1.swift in Sources */,
-				2AF2E7B827D2113000E3FA48 /* QemandeNomModifiable.swift in Sources */,
+				2AF2E7B827D2113000E3FA48 /* DemandeNomModifiable.swift in Sources */,
 				2A85A8F427BD8A5E0096BF60 /* BlocTextfield.swift in Sources */,
 				2A85A91327C1690F0096BF60 /* PeriodeView.swift in Sources */,
 				2A85A90C27BF9AC20096BF60 /* Glycemie.swift in Sources */,
@@ -689,7 +725,6 @@
 				2A9EB62627B6867600148422 /* ContentView.swift in Sources */,
 				2A9EB63427B6914B00148422 /* Mesures.swift in Sources */,
 				2A4399C327DA553700DC97A3 /* ExtractedVievBar1.swift in Sources */,
-				2AE3171527CD154400B11582 /* LigneUserView1.swift in Sources */,
 				2A9EB66627B6FCF100148422 /* ElemListeCardio.swift in Sources */,
 				2A85A8F227BD78230096BF60 /* BlocSlider.swift in Sources */,
 				2A9EB65A27B6918800148422 /* Help4.swift in Sources */,
@@ -700,6 +735,7 @@
 				2ADD5BB027D377D300FEFE3A /* ContentView2.swift in Sources */,
 				2A85A91C27C2B8AE0096BF60 /* LargeGraphicSucre.swift in Sources */,
 				2A85A90A27BF98710096BF60 /* ListeSucreView.swift in Sources */,
+				2A1C06CD27EA1C6500E6522B /* RadioButtonsIpadModifier.swift in Sources */,
 				2ADC897027B930DB006C362D /* MesuresSucre.swift in Sources */,
 				2A9EB65227B6918800148422 /* DemandeDouble.swift in Sources */,
 				2ADD5BAA27D33CB300FEFE3A /* Identite.swift in Sources */,
@@ -714,7 +750,7 @@
 				2ADD5BB827D4CD0400FEFE3A /* LigneUserView.swift in Sources */,
 				2A85A8EF27BD34110096BF60 /* ElemListePatient.swift in Sources */,
 				2ABDE98927E22B0900B15159 /* RadioButtonsModifier.swift in Sources */,
-				2A49B3B527C7C57300E4319F /* CourbrSucreView.swift in Sources */,
+				2A49B3B527C7C57300E4319F /* CourbeSucreView.swift in Sources */,
 				2A9EB66927B7D11800148422 /* LargeGraphicView.swift in Sources */,
 				2AE316F327CA4EF600B11582 /* AccueilPatients.swift in Sources */,
 				2A9EB67327B8131B00148422 /* FondEcranView.swift in Sources */,
@@ -732,6 +768,8 @@
 				2ADC898227BAC698006C362D /* RapportDuJourView.swift in Sources */,
 				2A85A91727C2A4F80096BF60 /* TensionBarView.swift in Sources */,
 				2A85A90627BF92ED0096BF60 /* EnTeteTension.swift in Sources */,
+				2AF4D1ED27EF410400815FD9 /* ElemListeCardioBis.swift in Sources */,
+				2A1C06D327EE0E0000E6522B /* TresPetitBleuModifier.swift in Sources */,
 				2A85A91527C29B9F0096BF60 /* Courbes1View.swift in Sources */,
 				2A9EB66427B6918900148422 /* CourbesView.swift in Sources */,
 				2A9EB66327B6918900148422 /* ResultatsView.swift in Sources */,
@@ -742,6 +780,7 @@
 				2AF2E7BA27D289C900E3FA48 /* DemandeNomBis.swift in Sources */,
 				2AD47A1027E0BA8F0088C47E /* RadioButtonsView.swift in Sources */,
 				2A1C06C027E32F2B00E6522B /* PointSurCourbeVue.swift in Sources */,
+				2A1C06D127EE0ADE00E6522B /* PetitRougeModifier.swift in Sources */,
 				2ADD5BB327D38ADD00FEFE3A /* LigneIdentite.swift in Sources */,
 				2AE3171827CD570500B11582 /* LegendeSucre.swift in Sources */,
 				2A85A90E27C02CDA0096BF60 /* Help0.swift in Sources */,
@@ -758,6 +797,7 @@
 				2A1C06C527E75CDE00E6522B /* LargeGraphicSucreV2.swift in Sources */,
 				2A85A8FE27BEDEE00096BF60 /* ElemListePatient1.swift in Sources */,
 				2A85A90027BEF0FD0096BF60 /* DetailRapportView.swift in Sources */,
+				2A1C06D527EE17B600E6522B /* BlocButtonModifier.swift in Sources */,
 				2A9EB65327B6918800148422 /* PickerDate.swift in Sources */,
 				2A9EB65727B6918800148422 /* TraceCourbe.swift in Sources */,
 				2A9EB66127B6918900148422 /* ShareSheet.swift in Sources */,

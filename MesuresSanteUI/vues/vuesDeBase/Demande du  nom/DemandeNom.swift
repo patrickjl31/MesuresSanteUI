@@ -75,7 +75,7 @@ struct DemandeNom: View {
                 
                 VStack {
                     Text("Qui êtes-vous ?")
-                        .font(.system(size: 20, weight: .heavy, design: .rounded))
+                        .font(.system(size: idiom == .pad ? 30 : 16, weight: .heavy, design: .rounded))
                     .foregroundColor(Color("BleuSombre"))
                     HStack{
                         Button {
@@ -88,9 +88,10 @@ struct DemandeNom: View {
                                 VStack( spacing: 0){
                                 Image(systemName: "arrow.uturn.backward")
                                 Text("Annuler")
-                                    .font(.system(size: 16, weight: .light))
+                                    .font(.system(size: idiom == .pad ? 24 : 16, weight: .light))
                                 }
-                                .font(.system(size: 18, weight: .light))
+                                .font(.system(size: idiom == .pad ? 24 : 16, weight: .light))
+                                //.font(.system(size: 18, weight: .light))
                         }
                         if action != .creer {
                             Button {
@@ -103,9 +104,10 @@ struct DemandeNom: View {
                                     VStack( spacing: 0){
                                     Image(systemName: "highlighter")
                                     Text("Nouveau")
-                                        .font(.system(size: 16, weight: .light))
+                                        
                                     }
-                                    .font(.system(size: 18, weight: .light))
+                                    .font(.system(size: idiom == .pad ? 24 : 16, weight: .light))
+                                    //.font(.system(size: 18, weight: .light))
                             }
                             
                             
@@ -125,10 +127,11 @@ struct DemandeNom: View {
                                 TextField("Votre prénom :", text: $prenom)
                                 }
                             }
-                        .font(.system(size: 18, weight: .bold, design: .rounded))
-                        .foregroundColor(Color("BleuSombre"))
-                        .padding(.horizontal, 10)
+                        
                     }
+                    .font(.system(size: idiom == .pad ? 30 : 16, weight: .bold))
+                    .foregroundColor(Color("BleuSombre"))
+                    .padding(.horizontal, 10)
                     if identiteRenseignee(){
                         Button {
                             validation()

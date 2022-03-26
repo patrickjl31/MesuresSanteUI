@@ -40,7 +40,7 @@ struct ContentView: View {
                 {
                     //Image(systemName: "rectangle.and.pencil.and.ellipsis")
                     Image(systemName: "person.3.sequence")
-                        .frame(width: 50, height: 50, alignment: .center)
+                        //.frame(width: 50, height: 50, alignment: .center)
                     Text("Patients") }
                     
                     .tag(0)
@@ -51,22 +51,22 @@ struct ContentView: View {
                 /* */
                 //---- les icones du bas
                 if users.existCurrentUser() {
-                    let patient = users.listeUsers[users.userCourant]
+                    
                     RapportDuJourView(user: users).tabItem
                     {
                         //Image(systemName: "rectangle.and.pencil.and.ellipsis")
                         Image(systemName: "rectangle.and.pencil.and.ellipsis")
-                            .frame(width: 50, height: 50, alignment: .center)
+                            //.frame(width: 50, height: 50, alignment: .center)
                         Text("Rapport") }
                     .tag(1)
                      
                     
                     //SaisieTensionView(user: users, patient: patient, systolique: 0, diastolique: 0, coeur: 0).tabItem
-                    SaisieTensionView1(user: users, systolique: 0, diastolique: 0, coeur: 0, oxygene: 0)
+                    SaisieTensionView1(user: users)
                         .tabItem
                         {
                             Image(systemName: "bolt.heart")
-                                .frame(width: 50, height: 50, alignment: .center)
+                                //.frame(width: 50, height: 50, alignment: .center)
                             Text("Tension") }
                     .tag(2)
                     /*
@@ -77,10 +77,11 @@ struct ContentView: View {
                             Text("Tension") }
                     .tag(2)
                      */
+                    //SaisieSucreView
                     SaisieSucreView(user: users).tabItem
                         {
                             Image(systemName: "pills")
-                                .frame(width: 50, height: 50, alignment: .center)
+                                //.frame(width: 50, height: 50, alignment: .center)
                             Text("Glycémie") }
                         .tag(3)
                       
@@ -94,7 +95,7 @@ struct ContentView: View {
                     HelpView().tabItem
                     {
                     Image(systemName: "info.circle")
-                        .frame(width: 50, height: 50, alignment: .center)
+                        //.frame(width: 50, height: 50, alignment: .center)
                     Text("Info") }
                     
                     .tag(4)
@@ -103,7 +104,7 @@ struct ContentView: View {
                     MacHelp().tabItem
                     {
                     Image(systemName: "info.circle")
-                        .frame(width: 50, height: 50, alignment: .center)
+                        //.frame(width: 50, height: 50, alignment: .center)
                     Text("Info") }
                     
                     .tag(5)
