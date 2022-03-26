@@ -26,7 +26,7 @@ struct ListeView: View {
         user.removeMesureTension(atIndex: offsets)
     }
     
-    
+    /*
     //Exporter avec airdrop
     func airportActionSheet(texte:String = "désolé") {
         //guard let data = URL(string: "https://www.zoho.com") else { return }
@@ -34,17 +34,24 @@ struct ListeView: View {
         let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
     }
+     */
     
     // MARK: - Body
     var body: some View {
         ZStack {
             VStack(content: {
+                //EnTeteTension()
+                /*
                 Image("coeur2")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .opacity(0.6)
                     .frame(width: 350, height: 100, alignment: .center)
+                 */
                 Spacer()
+                //CoeurBattantView()
+                FondEcranView()
+                /*
                 Image("coeur1")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -52,6 +59,7 @@ struct ListeView: View {
                     .scaleEffect(pulse ? 1.1 : 1)
                     .opacity(0.8)
                     //.animation(.easeInOut(duration: 1).repeatForever(autoreverses: true) )
+                 */
                 Spacer()
             })
             
@@ -72,13 +80,8 @@ struct ListeView: View {
                             VStack(alignment: .leading) {
                                 let ligne2 = "Mesure du : \(mesure[index].dateMesure.toShortString())/ \(mesure[index].moment)"
                                 let ligne1 =  String(format: " Syst :  %.1f", mesure[index].systolique) + " " + String(format: " Dyst :  %.1f", mesure[index].distolique) + " " + String(format: " Coeur :  %.0f", mesure[index].pulsation)  + " " + String(format: " Oxygène :  %.0f", mesure[index].oxygene)
-                                
                                 ElemListeCardio(ligne1: ligne1, ligne2: ligne2)
-                                /*
-                                    .onTapGesture {
-                                        user.removeMesureTension(atIndex: IndexSet([index]))
-                                    }
-                                 */
+                               
                             }
                         }
                         /**/
@@ -88,11 +91,9 @@ struct ListeView: View {
                          
                     }
                     
-                    
                 }
                 .multilineTextAlignment(.center)
                 .opacity(0.8)
-                
                 
                 HStack {
                     Button(action: {
@@ -105,12 +106,11 @@ struct ListeView: View {
                     })
                     .alert(isPresented: $showAlert, content: {
                         Alert(title: Text("Attention !"), message: Text("Voulez-vous réellement effacer les enregistrements ?"), primaryButton: .destructive(Text("Effacer")){
-                            print("Effacement total")
-                            // user.deleteAllTension()
-                            //datas.deleteAll()
+                            
                         }, secondaryButton: .cancel())
                 })
                     
+                    /*
                     Button(action: {
                         //datas.deleteAll()
                         airportActionSheet(texte: user.listeUsers[user.userCourant].toAirdrop(mesuresDe: TENSIONS))
@@ -119,21 +119,22 @@ struct ListeView: View {
                             .font(.title)
                         Text("Exporter")
                     })
-                    
-                
+                     */
+
                 } // : HStack
             
             }
             
             
         }
+        /*
         .onAppear(){
             //pulse.toggle()
-            withAnimation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true) ) {
-                pulse = true
-            }
+            //withAnimation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true) ) {
+                //pulse = true
         }
-
+         */
+               
         
     }
 }

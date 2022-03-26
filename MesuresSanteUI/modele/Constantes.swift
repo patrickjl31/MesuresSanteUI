@@ -157,7 +157,7 @@ let TEST_DEVICES = [
 
 let heigthScreen = UIScreen.main.bounds.size.height
 /*
-//let TestValues = [14.0,12.0,8.0,16.0,7.6,12.5,14.0,12.0,8.0,16.0,7.6,12.5,14.0,12.0,8.0,16.0,7.6,12.5]
+let TestValues = [14.0,12.0,8.0,16.0,7.6,12.5,14.0,12.0,8.0,16.0,7.6,12.5,14.0,12.0,8.0,16.0,7.6,12.5]
 let j: Double = 60 * 60 * 24
 var mesuresTest = Mesures()
 mesuresTest.maTension = [

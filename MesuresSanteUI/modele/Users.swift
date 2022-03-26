@@ -278,7 +278,7 @@ class Users : Codable, ObservableObject {
             patient.triMesures()
             //patient.saveTension()
             save2File()
-            print("Add tension en position \(patient.tension.maTension.count)")
+            //print("Add tension en position \(patient.tension.maTension.count)")
         }
     }
     /*
@@ -300,7 +300,7 @@ class Users : Codable, ObservableObject {
             patient.triMesures()
             //patient.saveSucre()
             save2File()
-            print("Add sucre en position \(listeUsers.count)")
+            //print("Add sucre en position \(listeUsers.count)")
         }
     }
     /*
@@ -322,7 +322,7 @@ class Users : Codable, ObservableObject {
             patient.triMesures()
             //patient.saveRapports()
             save2File()
-            print("Add rapport en position \(listeUsers.count)")
+            //print("Add rapport en position \(listeUsers.count)")
         }
     }
     
@@ -339,7 +339,7 @@ class Users : Codable, ObservableObject {
     // MARK: - Remove mesures
     func removeMesureSucre(atIndex: IndexSet ){
         guard let index = atIndex.first else {return}
-        print("remove : \(index)")
+        //print("remove : \(index)")
         if (userCourant > -1) && (index > -1) {
             let user:Personne = listeUsers[userCourant]
             let nombreMesures:Int = user.diabete.sucre.count
@@ -363,7 +363,7 @@ class Users : Codable, ObservableObject {
     */
     func removeMesureTension(atIndex: IndexSet ){
         guard let index = atIndex.first else {return}
-        print("remove : \(index)")
+        //print("remove : \(index)")
         //(userCourant > -1) && (index > -1)
         if (userCourant > -1)  && (index > -1) {
             let user:Personne = listeUsers[userCourant]
@@ -470,7 +470,7 @@ class Users : Codable, ObservableObject {
     
     
     func trace (message:String){
-        print(" Trace : " + message + "\n --------------------------\n")
+        //print(" Trace : " + message + "\n --------------------------\n")
     }
     /*
     func recall() -> [Personne]? {

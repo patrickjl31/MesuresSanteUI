@@ -27,7 +27,7 @@ struct CarroyageHorizontal1: View {
     */
     var body: some View {
         //let hauteurNiveau = hauteurGraphique / CGFloat(limH - limB)
-        let nombreLignes = limH - limB
+        //let nombreLignes = limH - limB
         
         let ecart:CGFloat = CGFloat(multi)
         ZStack {
@@ -36,7 +36,7 @@ struct CarroyageHorizontal1: View {
                 
                 let longueur = geometry.size.width - 25
                 //
-                let hauteur = Int(geometry.size.height) / nombreLignes
+                //let hauteur = Int(geometry.size.height) / nombreLignes
                 
                 //let debut = CGFloat(limB) * ecart
                 let debut = geometry.size.height - (CGFloat(limB) * ecart)

@@ -93,7 +93,6 @@
 		2ADC898027BA70CE006C362D /* Rapport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADC897F27BA70CE006C362D /* Rapport.swift */; };
 		2ADC898227BAC698006C362D /* RapportDuJourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADC898127BAC698006C362D /* RapportDuJourView.swift */; };
 		2ADC898427BAE9EC006C362D /* DemandeNom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADC898327BAE9EC006C362D /* DemandeNom.swift */; };
-		2ADD5BA627D33A9500FEFE3A /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5BA527D33A9500FEFE3A /* ConfigView.swift */; };
 		2ADD5BA827D33B5300FEFE3A /* DemandeNomSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5BA727D33B5300FEFE3A /* DemandeNomSimple.swift */; };
 		2ADD5BAA27D33CB300FEFE3A /* Identite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5BA927D33CB300FEFE3A /* Identite.swift */; };
 		2ADD5BAC27D343EB00FEFE3A /* ContentView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5BAB27D343EB00FEFE3A /* ContentView1.swift */; };
@@ -109,8 +108,8 @@
 		2AE3171827CD570500B11582 /* LegendeSucre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3171727CD570500B11582 /* LegendeSucre.swift */; };
 		2AE3171A27CD5A1A00B11582 /* LargeGraphicSucre1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3171927CD5A1A00B11582 /* LargeGraphicSucre1.swift */; };
 		2AF2E7B827D2113000E3FA48 /* DemandeNomModifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF2E7B727D2113000E3FA48 /* DemandeNomModifiable.swift */; };
-		2AF2E7BA27D289C900E3FA48 /* DemandeNomBis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF2E7B927D289C900E3FA48 /* DemandeNomBis.swift */; };
 		2AF4D1ED27EF410400815FD9 /* ElemListeCardioBis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4D1EC27EF410400815FD9 /* ElemListeCardioBis.swift */; };
+		2AF4D1F027EFA9CD00815FD9 /* CoeurBattantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4D1EF27EFA9CD00815FD9 /* CoeurBattantView.swift */; };
 		2AF6263427D6829000C13E04 /* LargeGraphicView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF6263327D6829000C13E04 /* LargeGraphicView1.swift */; };
 		2AF6263627D6855A00C13E04 /* SaisieTensionView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF6263527D6855A00C13E04 /* SaisieTensionView1.swift */; };
 		2AF6263827D917CE00C13E04 /* ListeUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF6263727D917CE00C13E04 /* ListeUsersView.swift */; };
@@ -204,7 +203,6 @@
 		2ADC897F27BA70CE006C362D /* Rapport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rapport.swift; sourceTree = "<group>"; };
 		2ADC898127BAC698006C362D /* RapportDuJourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapportDuJourView.swift; sourceTree = "<group>"; };
 		2ADC898327BAE9EC006C362D /* DemandeNom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemandeNom.swift; sourceTree = "<group>"; };
-		2ADD5BA527D33A9500FEFE3A /* ConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigView.swift; sourceTree = "<group>"; };
 		2ADD5BA727D33B5300FEFE3A /* DemandeNomSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemandeNomSimple.swift; sourceTree = "<group>"; };
 		2ADD5BA927D33CB300FEFE3A /* Identite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identite.swift; sourceTree = "<group>"; };
 		2ADD5BAB27D343EB00FEFE3A /* ContentView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView1.swift; sourceTree = "<group>"; };
@@ -221,8 +219,8 @@
 		2AE3171727CD570500B11582 /* LegendeSucre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendeSucre.swift; sourceTree = "<group>"; };
 		2AE3171927CD5A1A00B11582 /* LargeGraphicSucre1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeGraphicSucre1.swift; sourceTree = "<group>"; };
 		2AF2E7B727D2113000E3FA48 /* DemandeNomModifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemandeNomModifiable.swift; sourceTree = "<group>"; };
-		2AF2E7B927D289C900E3FA48 /* DemandeNomBis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemandeNomBis.swift; sourceTree = "<group>"; };
 		2AF4D1EC27EF410400815FD9 /* ElemListeCardioBis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElemListeCardioBis.swift; sourceTree = "<group>"; };
+		2AF4D1EF27EFA9CD00815FD9 /* CoeurBattantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoeurBattantView.swift; sourceTree = "<group>"; };
 		2AF6263327D6829000C13E04 /* LargeGraphicView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeGraphicView1.swift; sourceTree = "<group>"; };
 		2AF6263527D6855A00C13E04 /* SaisieTensionView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaisieTensionView1.swift; sourceTree = "<group>"; };
 		2AF6263727D917CE00C13E04 /* ListeUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeUsersView.swift; sourceTree = "<group>"; };
@@ -275,7 +273,6 @@
 		2A4399C727DD07B500DC97A3 /* unusedd */ = {
 			isa = PBXGroup;
 			children = (
-				2AF2E7B927D289C900E3FA48 /* DemandeNomBis.swift */,
 			);
 			path = unusedd;
 			sourceTree = "<group>";
@@ -303,6 +300,7 @@
 				2A85A90527BF92ED0096BF60 /* EnTeteTension.swift */,
 				2ADC897127B94A09006C362D /* FondEcranSucre.view.swift */,
 				2A9EB67227B8131B00148422 /* FondEcranView.swift */,
+				2AF4D1EF27EFA9CD00815FD9 /* CoeurBattantView.swift */,
 			);
 			path = "vues graphiques images";
 			sourceTree = "<group>";
@@ -533,7 +531,6 @@
 		2A9EB66727B7D0DF00148422 /* vues ecran complet */ = {
 			isa = PBXGroup;
 			children = (
-				2ADD5BA527D33A9500FEFE3A /* ConfigView.swift */,
 				2A9EB67427B8174D00148422 /* SaisieSucreView.swift */,
 				2AF6263527D6855A00C13E04 /* SaisieTensionView1.swift */,
 				2A9EB67027B8124000148422 /* SaisieConstantes.swift */,
@@ -777,7 +774,6 @@
 				2A9EB65827B6918800148422 /* BlocBouton.swift in Sources */,
 				2ABDE98B27E28D6400B15159 /* SucrePointVue.swift in Sources */,
 				2A9EB65627B6918800148422 /* BeauBouton.swift in Sources */,
-				2AF2E7BA27D289C900E3FA48 /* DemandeNomBis.swift in Sources */,
 				2AD47A1027E0BA8F0088C47E /* RadioButtonsView.swift in Sources */,
 				2A1C06C027E32F2B00E6522B /* PointSurCourbeVue.swift in Sources */,
 				2A1C06D127EE0ADE00E6522B /* PetitRougeModifier.swift in Sources */,
@@ -787,10 +783,10 @@
 				2A85A90427BF83250096BF60 /* EnTeteSucre.swift in Sources */,
 				2AE3171327CD14C300B11582 /* ListeUsers.swift in Sources */,
 				2A4399D127DE6F0900DC97A3 /* TitreBleuModifier.swift in Sources */,
+				2AF4D1F027EFA9CD00815FD9 /* CoeurBattantView.swift in Sources */,
 				2A85A8ED27BD2D770096BF60 /* BlocStepper.swift in Sources */,
 				2ABDE98527E214EA00B15159 /* TestRadioButton.swift in Sources */,
 				2ADC897C27BA6EE4006C362D /* Personne.swift in Sources */,
-				2ADD5BA627D33A9500FEFE3A /* ConfigView.swift in Sources */,
 				2A9EB66227B6918900148422 /* ListeView.swift in Sources */,
 				2A49B3B927C910A400E4319F /* Users.swift in Sources */,
 				2AF6263627D6855A00C13E04 /* SaisieTensionView1.swift in Sources */,

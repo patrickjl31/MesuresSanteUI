@@ -28,7 +28,7 @@ struct LargeGraphicSucre1: View {
     var body: some View {
         VStack{
             ScrollView(.horizontal, showsIndicators: true){
-                let largeur:CGFloat = CGFloat(datas.sucre.count * 40)
+                //let largeur:CGFloat = CGFloat(datas.sucre.count * 40)
                 if !datas.noMesures() {
                     let courbe = datas.courbes()
                     ZStack {

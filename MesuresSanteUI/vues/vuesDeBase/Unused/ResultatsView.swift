@@ -90,6 +90,7 @@ struct ResultatsView: View {
         }
     }
     // placer ici les fonctions internes à la struct
+    /*
     func exportToPDF() {
         let outputFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("SwiftUI.pdf")
         let pageSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
@@ -109,6 +110,7 @@ struct ResultatsView: View {
             }
         }
     }
+    */
 
 }
 

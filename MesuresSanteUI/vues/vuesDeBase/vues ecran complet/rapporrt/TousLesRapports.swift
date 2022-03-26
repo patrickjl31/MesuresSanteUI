@@ -21,7 +21,7 @@ struct TousLesRapports: View {
         
     }
     
-    
+    /*
     //Exporter avec airdrop
     func airportActionSheet(texte:String = "désolé") {
         //guard let data = URL(string: "https://www.zoho.com") else { return }
@@ -30,7 +30,7 @@ struct TousLesRapports: View {
         //UIWindowScene.windows
         UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
     }
-    
+    */
     
     var body: some View {
         VStack {
@@ -54,6 +54,7 @@ struct TousLesRapports: View {
                 }
             }
             Spacer()
+            /*
             HStack{
                 Spacer()
                 Button(action: {
@@ -70,7 +71,7 @@ struct TousLesRapports: View {
                 })
                 .padding(20)
             }
-            
+            */
         }
     }
 }

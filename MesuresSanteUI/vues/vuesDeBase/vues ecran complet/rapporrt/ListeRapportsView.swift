@@ -15,14 +15,16 @@ struct ListeRapportsView: View {
     //@ObservedObject var datas : Mesures
     
     // MARK: - fonctions
+    /*
     //Exporter avec airdrop
     func airportActionSheet(texte:String = "désolé") {
         //guard let data = URL(string: "https://www.zoho.com") else { return }
         let data = texte
         let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+        //UIWindowScene.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
         UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
     }
-    
+    */
     
     func removeRows(at offsets: IndexSet) {
         //patient.rapportsQuotidien.remove(atOffsets: offsets)
