@@ -262,6 +262,16 @@
 			path = unused;
 			sourceTree = "<group>";
 		};
+		2A3CFE3327F07089009368F6 /* Unused */ = {
+			isa = PBXGroup;
+			children = (
+				2ADD5BAB27D343EB00FEFE3A /* ContentView1.swift */,
+				2ADD5BB927D4ED1900FEFE3A /* ContentViewChoix.swift */,
+				2ADD5BAF27D377D300FEFE3A /* ContentView2.swift */,
+			);
+			path = Unused;
+			sourceTree = "<group>";
+		};
 		2A4399C627DD004C00DC97A3 /* unused */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,9 +570,7 @@
 			isa = PBXGroup;
 			children = (
 				2A9EB62527B6867600148422 /* ContentView.swift */,
-				2ADD5BAB27D343EB00FEFE3A /* ContentView1.swift */,
-				2ADD5BB927D4ED1900FEFE3A /* ContentViewChoix.swift */,
-				2ADD5BAF27D377D300FEFE3A /* ContentView2.swift */,
+				2A3CFE3327F07089009368F6 /* Unused */,
 			);
 			path = "groupe content V";
 			sourceTree = "<group>";

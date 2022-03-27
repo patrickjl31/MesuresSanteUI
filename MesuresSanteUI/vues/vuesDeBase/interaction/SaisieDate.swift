@@ -23,21 +23,13 @@ struct SaisieDate: View {
     var body: some View {
         
         VStack {
-            Text("Relevés du : \(releveDu.identDateAndMoment().date)  (\(releveDu.identDateAndMoment().moment))")
+            Text("Relevé du : \(releveDu.identDateAndMoment().date)  (\(releveDu.identDateAndMoment().moment))")
             Toggle("Saisir le relevé d'un autre jour ?", isOn: $autreJour)
                 //.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                 .tint(.blue)
                 .onChange(of: autreJour) { newValue in
-                    if newValue{
-                        if autreJour {
-                            DatePicker(selection: $releveDu,
-                                label: { Text("Relevés du :") })
-                            //print("datepicker")
-                        }
-                    } else {
+                    if !newValue{
                         releveDu = Date()
-                        //print("retour aujourdhui")
-                        //Text("Mesures réalisées le \(releveDu.identDateAndMoment().date) (\(releveDu.identDateAndMoment().moment))")
                     }
                 }
             
